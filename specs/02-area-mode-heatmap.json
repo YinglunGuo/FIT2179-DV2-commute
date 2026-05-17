@@ -1,0 +1,93 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "font": "Inter",
+    "axis": {
+      "gridColor": "#e7e2d8",
+      "domainColor": "#bdb6a9",
+      "tickColor": "#bdb6a9",
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12,
+      "titleFontWeight": 600
+    },
+    "legend": {
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  },
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "data/heatmap_modes.json"
+  },
+  "mark": {
+    "type": "rect",
+    "tooltip": true,
+    "cornerRadius": 2
+  },
+  "encoding": {
+    "y": {
+      "field": "area",
+      "type": "nominal",
+      "sort": [
+        "Melbourne City",
+        "Monash",
+        "Wyndham",
+        "Ballarat",
+        "Victoria",
+        "Australia"
+      ],
+      "title": null
+    },
+    "x": {
+      "field": "mode",
+      "type": "nominal",
+      "sort": [
+        "Car travel",
+        "Public transport",
+        "Work from home",
+        "Walk / cycle"
+      ],
+      "title": null,
+      "axis": {
+        "labelAngle": -20
+      }
+    },
+    "color": {
+      "field": "pct",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "redyellowblue",
+        "reverse": true
+      },
+      "legend": {
+        "title": "% workers"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "area",
+        "title": "Area"
+      },
+      {
+        "field": "mode",
+        "title": "Mode"
+      },
+      {
+        "field": "pct",
+        "title": "% workers",
+        "format": ".1f"
+      }
+    ]
+  }
+}

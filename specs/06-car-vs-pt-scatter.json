@@ -1,0 +1,152 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "font": "Inter",
+    "axis": {
+      "gridColor": "#e7e2d8",
+      "domainColor": "#bdb6a9",
+      "tickColor": "#bdb6a9",
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12,
+      "titleFontWeight": 600
+    },
+    "legend": {
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  },
+  "width": "container",
+  "height": 360,
+  "data": {
+    "url": "data/victoria_areas.json"
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "regression": "ptPct",
+          "on": "carPct"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "color": "#777",
+        "strokeDash": [
+          5,
+          5
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "carPct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              10,
+              75
+            ]
+          }
+        },
+        "y": {
+          "field": "ptPct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              20
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 95,
+        "opacity": 0.84,
+        "tooltip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "carPct",
+          "type": "quantitative",
+          "title": "Car travel (%)",
+          "scale": {
+            "domain": [
+              10,
+              75
+            ]
+          }
+        },
+        "y": {
+          "field": "ptPct",
+          "type": "quantitative",
+          "title": "Public transport (%)",
+          "scale": {
+            "domain": [
+              0,
+              20
+            ]
+          }
+        },
+        "color": {
+          "field": "zone",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Inner city",
+              "Inner suburb",
+              "Middle suburb",
+              "Outer suburb",
+              "Peri-urban",
+              "Regional"
+            ],
+            "range": [
+              "#063b63",
+              "#1f6fb2",
+              "#4a9ad4",
+              "#80bfe6",
+              "#f0aa4f",
+              "#9e7c5a"
+            ]
+          },
+          "legend": {
+            "title": "Area type",
+            "orient": "bottom"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Area"
+          },
+          {
+            "field": "zone",
+            "title": "Area type"
+          },
+          {
+            "field": "carPct",
+            "title": "Car travel %",
+            "format": ".1f"
+          },
+          {
+            "field": "ptPct",
+            "title": "PT use %",
+            "format": ".1f"
+          }
+        ]
+      }
+    }
+  ]
+}

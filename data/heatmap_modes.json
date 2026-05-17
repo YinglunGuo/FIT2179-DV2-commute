@@ -1,0 +1,122 @@
+[
+  {
+    "area": "Melbourne City",
+    "mode": "Car travel",
+    "pct": 16.6
+  },
+  {
+    "area": "Melbourne City",
+    "mode": "Public transport",
+    "pct": 17.2
+  },
+  {
+    "area": "Melbourne City",
+    "mode": "Work from home",
+    "pct": 38.6
+  },
+  {
+    "area": "Melbourne City",
+    "mode": "Walk / cycle",
+    "pct": 8.2
+  },
+  {
+    "area": "Monash",
+    "mode": "Car travel",
+    "pct": 49
+  },
+  {
+    "area": "Monash",
+    "mode": "Public transport",
+    "pct": 6.1
+  },
+  {
+    "area": "Monash",
+    "mode": "Work from home",
+    "pct": 31.6
+  },
+  {
+    "area": "Monash",
+    "mode": "Walk / cycle",
+    "pct": 2.5
+  },
+  {
+    "area": "Wyndham",
+    "mode": "Car travel",
+    "pct": 57.1
+  },
+  {
+    "area": "Wyndham",
+    "mode": "Public transport",
+    "pct": 5.9
+  },
+  {
+    "area": "Wyndham",
+    "mode": "Work from home",
+    "pct": 25.3
+  },
+  {
+    "area": "Wyndham",
+    "mode": "Walk / cycle",
+    "pct": 1.4
+  },
+  {
+    "area": "Ballarat",
+    "mode": "Car travel",
+    "pct": 67.4
+  },
+  {
+    "area": "Ballarat",
+    "mode": "Public transport",
+    "pct": 1.2
+  },
+  {
+    "area": "Ballarat",
+    "mode": "Work from home",
+    "pct": 15.3
+  },
+  {
+    "area": "Ballarat",
+    "mode": "Walk / cycle",
+    "pct": 2.8
+  },
+  {
+    "area": "Victoria",
+    "mode": "Car travel",
+    "pct": 54.5
+  },
+  {
+    "area": "Victoria",
+    "mode": "Public transport",
+    "pct": 4.4
+  },
+  {
+    "area": "Victoria",
+    "mode": "Work from home",
+    "pct": 25.7
+  },
+  {
+    "area": "Victoria",
+    "mode": "Walk / cycle",
+    "pct": 3.9
+  },
+  {
+    "area": "Australia",
+    "mode": "Car travel",
+    "pct": 57.8
+  },
+  {
+    "area": "Australia",
+    "mode": "Public transport",
+    "pct": 4.6
+  },
+  {
+    "area": "Australia",
+    "mode": "Work from home",
+    "pct": 21
+  },
+  {
+    "area": "Australia",
+    "mode": "Walk / cycle",
+    "pct": 3.7
+  }
+]

@@ -1,0 +1,124 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "font": "Inter",
+    "axis": {
+      "gridColor": "#e7e2d8",
+      "domainColor": "#bdb6a9",
+      "tickColor": "#bdb6a9",
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12,
+      "titleFontWeight": 600
+    },
+    "legend": {
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  },
+  "width": "container",
+  "height": 320,
+  "layer": [
+    {
+      "data": {
+        "url": "data/car_city_pairs.json"
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#b7aea1",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "title": null
+        },
+        "x": {
+          "field": "city",
+          "type": "quantitative",
+          "title": "Car driver (%)",
+          "scale": {
+            "domain": [
+              28,
+              72
+            ]
+          }
+        },
+        "x2": {
+          "field": "rest"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/car_city.json"
+      },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 130,
+        "tooltip": true
+      },
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "title": null
+        },
+        "x": {
+          "field": "pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              28,
+              72
+            ]
+          }
+        },
+        "color": {
+          "field": "type",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Greater capital city",
+              "Rest of state"
+            ],
+            "range": [
+              "#1f6fb2",
+              "#c83f32"
+            ]
+          },
+          "legend": {
+            "title": "Area",
+            "orient": "bottom"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "type",
+            "title": "Area"
+          },
+          {
+            "field": "pct",
+            "title": "Car driver %",
+            "format": ".1f"
+          }
+        ]
+      }
+    }
+  ]
+}

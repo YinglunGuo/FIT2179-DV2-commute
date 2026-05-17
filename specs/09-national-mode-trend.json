@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "font": "Inter",
+    "axis": {
+      "gridColor": "#e7e2d8",
+      "domainColor": "#bdb6a9",
+      "tickColor": "#bdb6a9",
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12,
+      "titleFontWeight": 600
+    },
+    "legend": {
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  },
+  "width": "container",
+  "height": 320,
+  "data": {
+    "url": "data/national_trend.json"
+  },
+  "mark": {
+    "type": "line",
+    "point": {
+      "filled": true,
+      "size": 85
+    },
+    "strokeWidth": 3,
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Census year"
+    },
+    "y": {
+      "field": "pct",
+      "type": "quantitative",
+      "title": "% of Australian workers"
+    },
+    "color": {
+      "field": "mode",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Car driver",
+          "Work from home",
+          "Public transport"
+        ],
+        "range": [
+          "#c83f32",
+          "#2f8f5b",
+          "#1f6fb2"
+        ]
+      },
+      "legend": {
+        "title": "Mode",
+        "orient": "bottom"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "mode",
+        "title": "Mode"
+      },
+      {
+        "field": "year",
+        "title": "Year"
+      },
+      {
+        "field": "pct",
+        "title": "% workers",
+        "format": ".1f"
+      }
+    ]
+  }
+}

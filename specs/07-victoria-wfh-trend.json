@@ -1,0 +1,101 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "font": "Inter",
+    "axis": {
+      "gridColor": "#e7e2d8",
+      "domainColor": "#bdb6a9",
+      "tickColor": "#bdb6a9",
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12,
+      "titleFontWeight": 600
+    },
+    "legend": {
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  },
+  "width": "container",
+  "height": 280,
+  "data": {
+    "url": "data/wfh_vic_trend.json"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "opacity": 0.16,
+        "color": "#2f8f5b"
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "#2f8f5b",
+        "strokeWidth": 4
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "color": "#2f8f5b",
+        "size": 100,
+        "filled": true
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -14,
+        "fontWeight": 700,
+        "color": "#2f8f5b"
+      },
+      "encoding": {
+        "text": {
+          "field": "pct",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Census year"
+    },
+    "y": {
+      "field": "pct",
+      "type": "quantitative",
+      "title": "% working from home",
+      "scale": {
+        "domain": [
+          0,
+          30
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "title": "Year"
+      },
+      {
+        "field": "pct",
+        "title": "WFH %",
+        "format": ".1f"
+      }
+    ]
+  }
+}

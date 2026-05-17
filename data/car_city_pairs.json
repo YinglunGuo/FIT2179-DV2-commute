@@ -1,0 +1,32 @@
+[
+  {
+    "state": "NSW",
+    "city": 34.5,
+    "rest": 60.7
+  },
+  {
+    "state": "VIC",
+    "city": 46.8,
+    "rest": 62
+  },
+  {
+    "state": "QLD",
+    "city": 55.5,
+    "rest": 64.6
+  },
+  {
+    "state": "SA",
+    "city": 63.8,
+    "rest": 66.8
+  },
+  {
+    "state": "WA",
+    "city": 62.5,
+    "rest": 63
+  },
+  {
+    "state": "TAS",
+    "city": 60.6,
+    "rest": 68
+  }
+]

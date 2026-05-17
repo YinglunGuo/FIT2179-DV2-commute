@@ -1,0 +1,174 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "font": "Inter",
+    "axis": {
+      "gridColor": "#e7e2d8",
+      "domainColor": "#bdb6a9",
+      "tickColor": "#bdb6a9",
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12,
+      "titleFontWeight": 600
+    },
+    "legend": {
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  },
+  "width": "container",
+  "height": 520,
+  "projection": {
+    "type": "mercator",
+    "center": [
+      145.1,
+      -37.15
+    ],
+    "scale": 4300
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/victoria_outline.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#eee6da",
+        "stroke": "#9f9587",
+        "strokeWidth": 1.2
+      }
+    },
+    {
+      "data": {
+        "url": "data/victoria_areas.json"
+      },
+      "mark": {
+        "type": "circle",
+        "opacity": 0.86,
+        "stroke": "#fffdf8",
+        "strokeWidth": 1.4,
+        "tooltip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "ptPct",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              70,
+              2500
+            ]
+          },
+          "legend": {
+            "title": "PT use (%)",
+            "orient": "bottom-left"
+          }
+        },
+        "color": {
+          "field": "zone",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Inner city",
+              "Inner suburb",
+              "Middle suburb",
+              "Outer suburb",
+              "Peri-urban",
+              "Regional"
+            ],
+            "range": [
+              "#063b63",
+              "#1f6fb2",
+              "#4a9ad4",
+              "#80bfe6",
+              "#f0aa4f",
+              "#9e7c5a"
+            ]
+          },
+          "legend": {
+            "title": "Area type",
+            "orient": "bottom-right"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Area"
+          },
+          {
+            "field": "zone",
+            "title": "Area type"
+          },
+          {
+            "field": "ptPct",
+            "title": "Public transport %",
+            "format": ".1f"
+          },
+          {
+            "field": "carPct",
+            "title": "Car travel %",
+            "format": ".1f"
+          },
+          {
+            "field": "wfhPct",
+            "title": "Work from home %",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.96,
+            "lat": -37.81,
+            "label": "Melbourne\nCity"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dx": 28,
+        "dy": -18,
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#172026"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ]
+}

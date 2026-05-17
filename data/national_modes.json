@@ -1,0 +1,30 @@
+[
+  {
+    "mode": "Car travel",
+    "pct": 57.8
+  },
+  {
+    "mode": "Work from home",
+    "pct": 21
+  },
+  {
+    "mode": "Public transport",
+    "pct": 4.6
+  },
+  {
+    "mode": "Walk only",
+    "pct": 2.7
+  },
+  {
+    "mode": "Truck",
+    "pct": 2.1
+  },
+  {
+    "mode": "Bicycle",
+    "pct": 1
+  },
+  {
+    "mode": "Other / not stated",
+    "pct": 10.8
+  }
+]

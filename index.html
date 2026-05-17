@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Victorians Commute</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700;8..60,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="topline" aria-label="Project metadata"><span>FIT2179 Data Visualisation 2</span><span>Yinglun Guo · 35964952</span><span>May 2026</span></nav>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Victoria · journey to work · Census 2011-2021</p>
+        <h1>How Victorians Commute</h1>
+        <p class="subtitle">Public transport collapsed in the pandemic Census, car travel remained dominant, and working from home rewrote the weekday travel story.</p>
+      </div>
+      <div class="hero-panel" aria-label="Summary statistics">
+        <div><strong>54.5%</strong><span>used a car to get to work in Victoria in 2021</span></div>
+        <div><strong>25.7%</strong><span>worked from home in Victoria in 2021</span></div>
+        <div><strong>4.4%</strong><span>used public transport in Victoria in 2021</span></div>
+        <div><strong>-61%</strong><span>national train commuter decline, 2016 to 2021</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="brief section-band">
+      <div class="content narrow">
+        <div class="brief-grid">
+          <div><span>Why</span><p>Commuting shapes time, cost, access and quality of life. The project explains why transport choices look very different across Victoria.</p></div>
+          <div><span>Who</span><p>The audience is the general Australian public, especially Victorian residents and students interested in cities and everyday travel.</p></div>
+          <div><span>What</span><p>ABS Census and QuickStats data are combined with geographic boundary information and area centroids.</p></div>
+          <div><span>How</span><p>Fourteen Vega-Lite views use map, heatmap, ranked bar, grouped bar, scatter, line, dumbbell, donut and stacked area idioms.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content story-block">
+      <p class="section-kicker">Storyline</p>
+      <h2>Three forces explain the 2021 commuting picture.</h2>
+      <p class="lead">First, cars remain the default outside the inner city. Second, public transport use is strongly geographic: it is highest where density, train access and CBD proximity overlap. Third, work from home changed the denominator itself, reducing the number of people making any commute on Census day.</p>
+    </section>
+
+    <section class="charts content">
+      <article class="chart-card ">
+  <div class="chart-copy"><span class="chart-number">01</span><h3>Victoria's travel modes in 2021</h3><p>More than half of Victorian workers travelled by car, while work from home became the second-largest category.</p></div>
+  <div id="01-victoria-modes-donut" class="chart-host" aria-label="Victoria's travel modes in 2021"></div>
+  <p class="source-note">Source: ABS Census 2021, Working Population Profile. JSON spec: <a href="specs/01-victoria-modes-donut.json">specs/01-victoria-modes-donut.json</a></p>
+</article>
+<article class="chart-card ">
+  <div class="chart-copy"><span class="chart-number">02</span><h3>Same state, different commute profiles</h3><p>The heatmap makes the place-based split visible: inner Melbourne has high WFH and PT; Ballarat is car-led.</p></div>
+  <div id="02-area-mode-heatmap" class="chart-host" aria-label="Same state, different commute profiles"></div>
+  <p class="source-note">Source: ABS QuickStats and Community Profiles, 2021. JSON spec: <a href="specs/02-area-mode-heatmap.json">specs/02-area-mode-heatmap.json</a></p>
+</article>
+<article class="chart-card wide">
+  <div class="chart-copy"><span class="chart-number">03</span><h3>Inner, suburban and regional areas side by side</h3><p>Grouped bars compare the three modes that define the story: car travel, PT use and work from home.</p></div>
+  <div id="03-selected-area-bars" class="chart-host" aria-label="Inner, suburban and regional areas side by side"></div>
+  <p class="source-note">Source: ABS QuickStats and Community Profiles, 2021. JSON spec: <a href="specs/03-selected-area-bars.json">specs/03-selected-area-bars.json</a></p>
+</article>
+<article class="chart-card wide">
+  <div class="chart-copy"><span class="chart-number">04</span><h3>Public transport use across Victoria</h3><p>Bubble size shows public transport share. The largest bubbles sit in and around inner Melbourne.</p></div>
+  <div id="04-victoria-pt-bubble-map" class="chart-host" aria-label="Public transport use across Victoria"></div>
+  <p class="source-note">Map outline simplified from public geographic boundary references; points use approximate area centroids. JSON spec: <a href="specs/04-victoria-pt-bubble-map.json">specs/04-victoria-pt-bubble-map.json</a></p>
+</article>
+<article class="chart-card ">
+  <div class="chart-copy"><span class="chart-number">05</span><h3>Which areas still use public transport?</h3><p>Ranking exposes the steep fall from Melbourne City to regional centres.</p></div>
+  <div id="05-pt-ranking" class="chart-host" aria-label="Which areas still use public transport?"></div>
+  <p class="source-note">Source: ABS QuickStats and Community Profiles, 2021. JSON spec: <a href="specs/05-pt-ranking.json">specs/05-pt-ranking.json</a></p>
+</article>
+<article class="chart-card ">
+  <div class="chart-copy"><span class="chart-number">06</span><h3>Car travel and PT use move in opposite directions</h3><p>The fitted line summarises the negative relationship between car travel and public transport use.</p></div>
+  <div id="06-car-vs-pt-scatter" class="chart-host" aria-label="Car dependence and PT use move in opposite directions"></div>
+  <p class="source-note">Source: ABS QuickStats and Community Profiles, 2021. JSON spec: <a href="specs/06-car-vs-pt-scatter.json">specs/06-car-vs-pt-scatter.json</a></p>
+</article>
+<article class="chart-card ">
+  <div class="chart-copy"><span class="chart-number">07</span><h3>Work from home became mainstream in one Census cycle</h3><p>Victoria's WFH share moved from a small minority to one in four workers in 2021.</p></div>
+  <div id="07-victoria-wfh-trend" class="chart-host" aria-label="Work from home became mainstream in one Census cycle"></div>
+  <p class="source-note">Source: ABS Census 2011, 2016 and 2021. JSON spec: <a href="specs/07-victoria-wfh-trend.json">specs/07-victoria-wfh-trend.json</a></p>
+</article>
+<article class="chart-card ">
+  <div class="chart-copy"><span class="chart-number">08</span><h3>Victoria was among the national WFH leaders</h3><p>Victoria sits behind NSW, reflecting the concentration of office and knowledge work.</p></div>
+  <div id="08-wfh-by-state" class="chart-host" aria-label="Victoria was among the national WFH leaders"></div>
+  <p class="source-note">Source: ABS Australia's Journey to Work, 2022. JSON spec: <a href="specs/08-wfh-by-state.json">specs/08-wfh-by-state.json</a></p>
+</article>
+<article class="chart-card ">
+  <div class="chart-copy"><span class="chart-number">09</span><h3>The national mode mix changed sharply by 2021</h3><p>The car line fell as working from home rose; PT did not benefit from the shift.</p></div>
+  <div id="09-national-mode-trend" class="chart-host" aria-label="The national mode mix changed sharply by 2021"></div>
+  <p class="source-note">Source: ABS Australia's Journey to Work, 2022. JSON spec: <a href="specs/09-national-mode-trend.json">specs/09-national-mode-trend.json</a></p>
+</article>
+<article class="chart-card ">
+  <div class="chart-copy"><span class="chart-number">10</span><h3>Capital cities are less car-dependent than the rest of each state</h3><p>Dumbbell gaps show that the city-rest divide is largest in NSW and Victoria.</p></div>
+  <div id="10-car-city-dumbbell" class="chart-host" aria-label="Capital cities are less car-dependent than the rest of each state"></div>
+  <p class="source-note">Source: ABS Australia's Journey to Work, 2022. JSON spec: <a href="specs/10-car-city-dumbbell.json">specs/10-car-city-dumbbell.json</a></p>
+</article>
+<article class="chart-card ">
+  <div class="chart-copy"><span class="chart-number">11</span><h3>Train, bus and tram commuting all dropped in 2021</h3><p>This chart separates the PT system into modes to show that the decline was system-wide.</p></div>
+  <div id="11-pt-modes-collapse" class="chart-host" aria-label="Train, bus and tram commuting all dropped in 2021"></div>
+  <p class="source-note">Source: ABS Australia's Journey to Work, 2022. JSON spec: <a href="specs/11-pt-modes-collapse.json">specs/11-pt-modes-collapse.json</a></p>
+</article>
+<article class="chart-card ">
+  <div class="chart-copy"><span class="chart-number">12</span><h3>The full 2021 national hierarchy</h3><p>Sorted bars give context: public transport was only a small slice during the pandemic Census.</p></div>
+  <div id="12-national-2021-modes" class="chart-host" aria-label="The full 2021 national hierarchy"></div>
+  <p class="source-note">Source: ABS Australia's Journey to Work, 2022. JSON spec: <a href="specs/12-national-2021-modes.json">specs/12-national-2021-modes.json</a></p>
+</article>
+<article class="chart-card wide">
+  <div class="chart-copy"><span class="chart-number">13</span><h3>Vehicle ownership reinforces the geography story</h3><p>Melbourne City has many zero-car households; Wyndham is dominated by two-or-more vehicle households.</p></div>
+  <div id="13-vehicle-ownership-stack" class="chart-host" aria-label="Vehicle ownership reinforces the geography story"></div>
+  <p class="source-note">Source: ABS QuickStats, 2021. JSON spec: <a href="specs/13-vehicle-ownership-stack.json">specs/13-vehicle-ownership-stack.json</a></p>
+</article>
+<article class="chart-card wide">
+  <div class="chart-copy"><span class="chart-number">14</span><h3>Walking and cycling did not scale with population growth</h3><p>The stacked area chart shows long-run stagnation in active commuting.</p></div>
+  <div id="14-active-transport-area" class="chart-host" aria-label="Walking and cycling did not scale with population growth"></div>
+  <p class="source-note">Source: ABS Australia's Journey to Work, 2022. JSON spec: <a href="specs/14-active-transport-area.json">specs/14-active-transport-area.json</a></p>
+</article>
+    </section>
+
+    <section class="content conclusion">
+      <p class="section-kicker">Conclusion</p>
+      <h2>Victoria is not one commuting system.</h2>
+      <p>Inner Melbourne behaves like a dense, mixed-mode city; outer suburbs and regional centres remain car-dependent; and the 2021 work-from-home shock reshaped demand everywhere. The key insight is not only that public transport fell during COVID-19, but that recovery will be uneven unless access outside the inner city improves.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>Author:</strong> Yinglun Guo, 35964952 · <strong>Date:</strong> May 2026 · <strong>Tool:</strong> Vega-Lite v5</div>
+    <div><strong>Data sources:</strong> Australian Bureau of Statistics, Census of Population and Housing 2011-2021; ABS Australia's Journey to Work 2022; ABS QuickStats and Community Profiles 2021; ABS digital boundary files / public geographic boundary references.</div>
+    <div>All chart JSON files are available in the <a href="specs/">specs folder</a>; data files are available in the <a href="data/">data folder</a>.</div>
+  </footer>
+
+  <script>
+    const charts = ["01-victoria-modes-donut","02-area-mode-heatmap","03-selected-area-bars","04-victoria-pt-bubble-map","05-pt-ranking","06-car-vs-pt-scatter","07-victoria-wfh-trend","08-wfh-by-state","09-national-mode-trend","10-car-city-dumbbell","11-pt-modes-collapse","12-national-2021-modes","13-vehicle-ownership-stack","14-active-transport-area"];
+    const embedOptions = { actions: false, renderer: 'svg' };
+    async function embedCharts() {
+      for (const id of charts) {
+        const host = document.getElementById(id);
+        try {
+          const spec = await fetch('specs/' + id + '.json').then(r => {
+            if (!r.ok) throw new Error(r.status + ' ' + r.statusText);
+            return r.json();
+          });
+          await vegaEmbed(host, spec, embedOptions);
+        } catch (error) {
+          host.innerHTML = '<p class="chart-error">Chart could not load. Use a local web server or GitHub Pages so JSON files can be fetched.</p>';
+          console.error(id, error);
+        }
+      }
+    }
+    embedCharts();
+  </script>
+</body>
+</html>

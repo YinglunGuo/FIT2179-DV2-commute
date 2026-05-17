@@ -1,0 +1,34 @@
+[
+  {
+    "state": "NSW",
+    "pct": 31
+  },
+  {
+    "state": "VIC",
+    "pct": 25.7
+  },
+  {
+    "state": "QLD",
+    "pct": 14.1
+  },
+  {
+    "state": "ACT",
+    "pct": 10.9
+  },
+  {
+    "state": "SA",
+    "pct": 9.6
+  },
+  {
+    "state": "TAS",
+    "pct": 8
+  },
+  {
+    "state": "WA",
+    "pct": 7.5
+  },
+  {
+    "state": "NT",
+    "pct": 4.2
+  }
+]

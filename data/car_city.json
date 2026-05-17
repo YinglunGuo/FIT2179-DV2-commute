@@ -1,0 +1,62 @@
+[
+  {
+    "state": "NSW",
+    "type": "Greater capital city",
+    "pct": 34.5
+  },
+  {
+    "state": "NSW",
+    "type": "Rest of state",
+    "pct": 60.7
+  },
+  {
+    "state": "VIC",
+    "type": "Greater capital city",
+    "pct": 46.8
+  },
+  {
+    "state": "VIC",
+    "type": "Rest of state",
+    "pct": 62
+  },
+  {
+    "state": "QLD",
+    "type": "Greater capital city",
+    "pct": 55.5
+  },
+  {
+    "state": "QLD",
+    "type": "Rest of state",
+    "pct": 64.6
+  },
+  {
+    "state": "SA",
+    "type": "Greater capital city",
+    "pct": 63.8
+  },
+  {
+    "state": "SA",
+    "type": "Rest of state",
+    "pct": 66.8
+  },
+  {
+    "state": "WA",
+    "type": "Greater capital city",
+    "pct": 62.5
+  },
+  {
+    "state": "WA",
+    "type": "Rest of state",
+    "pct": 63
+  },
+  {
+    "state": "TAS",
+    "type": "Greater capital city",
+    "pct": 60.6
+  },
+  {
+    "state": "TAS",
+    "type": "Rest of state",
+    "pct": 68
+  }
+]

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "font": "Inter",
+    "axis": {
+      "gridColor": "#e7e2d8",
+      "domainColor": "#bdb6a9",
+      "tickColor": "#bdb6a9",
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12,
+      "titleFontWeight": 600
+    },
+    "legend": {
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  },
+  "width": "container",
+  "height": 320,
+  "data": {
+    "url": "data/national_modes.json"
+  },
+  "mark": {
+    "type": "bar",
+    "tooltip": true,
+    "cornerRadiusEnd": 3
+  },
+  "encoding": {
+    "x": {
+      "field": "pct",
+      "type": "quantitative",
+      "title": "% of Australian workers"
+    },
+    "y": {
+      "field": "mode",
+      "type": "nominal",
+      "sort": {
+        "field": "pct",
+        "order": "descending"
+      },
+      "title": null
+    },
+    "color": {
+      "field": "mode",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Car travel",
+          "Work from home",
+          "Car passenger",
+          "Public transport",
+          "Walk only",
+          "Walk / cycle",
+          "Bicycle",
+          "Truck",
+          "Other / not stated"
+        ],
+        "range": [
+          "#c83f32",
+          "#2f8f5b",
+          "#e5a09a",
+          "#1f6fb2",
+          "#d9852b",
+          "#d9852b",
+          "#7b4fa1",
+          "#8b6f47",
+          "#82909a"
+        ]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {
+        "field": "mode",
+        "title": "Mode"
+      },
+      {
+        "field": "pct",
+        "title": "% workers",
+        "format": ".1f"
+      }
+    ]
+  }
+}
