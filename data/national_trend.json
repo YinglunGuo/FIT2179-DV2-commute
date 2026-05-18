@@ -1,47 +1,11 @@
 [
-  {
-    "year": "2011",
-    "mode": "Car driver",
-    "pct": 60.7
-  },
-  {
-    "year": "2016",
-    "mode": "Car driver",
-    "pct": 62
-  },
-  {
-    "year": "2021",
-    "mode": "Car driver",
-    "pct": 53.1
-  },
-  {
-    "year": "2011",
-    "mode": "Work from home",
-    "pct": 4.4
-  },
-  {
-    "year": "2016",
-    "mode": "Work from home",
-    "pct": 4.7
-  },
-  {
-    "year": "2021",
-    "mode": "Work from home",
-    "pct": 21
-  },
-  {
-    "year": "2011",
-    "mode": "Public transport",
-    "pct": 5.6
-  },
-  {
-    "year": "2016",
-    "mode": "Public transport",
-    "pct": 5.9
-  },
-  {
-    "year": "2021",
-    "mode": "Public transport",
-    "pct": 4.6
-  }
+  { "year": "2011", "mode": "Car driver",       "pct": 60.7 },
+  { "year": "2016", "mode": "Car driver",       "pct": 62.0 },
+  { "year": "2021", "mode": "Car driver",       "pct": 53.1 },
+  { "year": "2011", "mode": "Worked from home", "pct": 4.4  },
+  { "year": "2016", "mode": "Worked from home", "pct": 4.7  },
+  { "year": "2021", "mode": "Worked from home", "pct": 21.0 },
+  { "year": "2011", "mode": "Public transport", "pct": 10.4 },
+  { "year": "2016", "mode": "Public transport", "pct": 11.5 },
+  { "year": "2021", "mode": "Public transport", "pct": 4.7  }
 ]

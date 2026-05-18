@@ -1,106 +1,61 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
+  "description": "Normalised stacked bar chart of motor-vehicle ownership per household, 2021 Census. Four areas — Melbourne City, Victoria, Australia and Wyndham — show how household vehicle access tracks geography.",
+  "autosize": { "type": "fit", "contains": "padding" },
   "config": {
     "background": null,
     "font": "Inter",
-    "axis": {
-      "gridColor": "#e7e2d8",
-      "domainColor": "#bdb6a9",
-      "tickColor": "#bdb6a9",
-      "labelColor": "#344047",
-      "titleColor": "#172026",
-      "titleFontSize": 12,
-      "titleFontWeight": 600
-    },
-    "legend": {
-      "labelColor": "#344047",
-      "titleColor": "#172026",
-      "titleFontSize": 12
-    },
-    "view": {
-      "stroke": null
-    }
+    "axis": { "gridColor": "#e7e2d8", "domainColor": "#bdb6a9", "tickColor": "#bdb6a9", "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12, "titleFontWeight": 600 },
+    "legend": { "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12 },
+    "view": { "stroke": null }
   },
   "width": "container",
   "height": 280,
-  "data": {
-    "url": "data/vehicle_ownership.json"
-  },
-  "mark": {
-    "type": "bar",
-    "tooltip": true
-  },
-  "encoding": {
-    "x": {
-      "field": "pct",
-      "type": "quantitative",
-      "title": "% of households",
-      "stack": "normalize",
-      "axis": {
-        "format": "%"
-      }
-    },
-    "y": {
-      "field": "area",
-      "type": "nominal",
-      "sort": [
-        "Melbourne City",
-        "Victoria",
-        "Australia",
-        "Wyndham"
-      ],
-      "title": null
-    },
-    "color": {
-      "field": "category",
-      "type": "nominal",
-      "sort": [
-        "No vehicle",
-        "1 vehicle",
-        "2 vehicles",
-        "3+ vehicles"
-      ],
-      "scale": {
-        "domain": [
-          "No vehicle",
-          "1 vehicle",
-          "2 vehicles",
-          "3+ vehicles"
-        ],
-        "range": [
-          "#063b63",
-          "#1f6fb2",
-          "#80bfe6",
-          "#d6edf8"
+  "padding": 6,
+  "data": { "url": "data/vehicle_ownership.json" },
+  "layer": [
+    {
+      "mark": { "type": "bar", "tooltip": true, "stroke": "#fbfaf6", "strokeWidth": 1 },
+      "encoding": {
+        "x": { "field": "pct", "type": "quantitative", "title": "% of households", "stack": "normalize", "axis": { "format": "%" } },
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": ["Melbourne City", "Victoria", "Australia", "Wyndham"],
+          "title": null,
+          "axis": { "labelFontWeight": 700 }
+        },
+        "color": {
+          "field": "category",
+          "type": "nominal",
+          "sort": ["No vehicle", "1 vehicle", "2 vehicles", "3+ vehicles"],
+          "scale": {
+            "domain": ["No vehicle", "1 vehicle", "2 vehicles", "3+ vehicles"],
+            "range": ["#063b63", "#1f6fb2", "#80bfe6", "#d6edf8"]
+          },
+          "legend": { "title": "Vehicles per household", "orient": "bottom" }
+        },
+        "order": { "field": "category", "sort": "ascending" },
+        "tooltip": [
+          { "field": "area", "title": "Area" },
+          { "field": "category", "title": "Vehicle category" },
+          { "field": "pct", "title": "% households", "format": ".1f" }
         ]
-      },
-      "legend": {
-        "title": "Vehicles",
-        "orient": "bottom"
       }
     },
-    "order": {
-      "field": "category",
-      "sort": "ascending"
-    },
-    "tooltip": [
-      {
-        "field": "area",
-        "title": "Area"
-      },
-      {
-        "field": "category",
-        "title": "Vehicle category"
-      },
-      {
-        "field": "pct",
-        "title": "% households",
-        "format": ".1f"
+    {
+      "mark": { "type": "text", "align": "center", "fontSize": 10, "fontWeight": 700, "color": "#fbfaf6" },
+      "encoding": {
+        "x": { "field": "pct", "type": "quantitative", "stack": "normalize", "bandPosition": 0.5 },
+        "y": { "field": "area", "type": "nominal", "sort": ["Melbourne City", "Victoria", "Australia", "Wyndham"] },
+        "color": {
+          "condition": { "test": "datum.category === '2 vehicles' || datum.category === '3+ vehicles'", "value": "#0f1e34" },
+          "value": "#fbfaf6"
+        },
+        "text": { "field": "pct", "format": ".0f" },
+        "order": { "field": "category", "sort": "ascending" },
+        "detail": { "field": "category" }
       }
-    ]
-  }
+    }
+  ]
 }

@@ -1,93 +1,60 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
+  "description": "Heatmap of mode share by area for Victoria 2021. Sequential blue encodes a single quantitative variable (% of workers).",
+  "autosize": { "type": "fit", "contains": "padding" },
   "config": {
     "background": null,
     "font": "Inter",
-    "axis": {
-      "gridColor": "#e7e2d8",
-      "domainColor": "#bdb6a9",
-      "tickColor": "#bdb6a9",
-      "labelColor": "#344047",
-      "titleColor": "#172026",
-      "titleFontSize": 12,
-      "titleFontWeight": 600
-    },
-    "legend": {
-      "labelColor": "#344047",
-      "titleColor": "#172026",
-      "titleFontSize": 12
-    },
-    "view": {
-      "stroke": null
-    }
+    "axis": { "gridColor": "#e7e2d8", "domainColor": "#bdb6a9", "tickColor": "#bdb6a9", "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12, "titleFontWeight": 600 },
+    "legend": { "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12 },
+    "view": { "stroke": null }
   },
   "width": "container",
-  "height": 300,
-  "data": {
-    "url": "data/heatmap_modes.json"
-  },
-  "mark": {
-    "type": "rect",
-    "tooltip": true,
-    "cornerRadius": 2
-  },
-  "encoding": {
-    "y": {
-      "field": "area",
-      "type": "nominal",
-      "sort": [
-        "Melbourne City",
-        "Monash",
-        "Wyndham",
-        "Ballarat",
-        "Victoria",
-        "Australia"
-      ],
-      "title": null
-    },
-    "x": {
-      "field": "mode",
-      "type": "nominal",
-      "sort": [
-        "Car travel",
-        "Public transport",
-        "Work from home",
-        "Walk / cycle"
-      ],
-      "title": null,
-      "axis": {
-        "labelAngle": -20
+  "height": 280,
+  "padding": 6,
+  "data": { "url": "data/heatmap_modes.json" },
+  "layer": [
+    {
+      "mark": { "type": "rect", "tooltip": true, "stroke": "#fbfaf6", "strokeWidth": 1.5 },
+      "encoding": {
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": ["Melbourne City", "Port Phillip", "Monash", "Wyndham", "Ballarat", "Victoria", "Australia"],
+          "title": null,
+          "axis": { "labelFontWeight": 600 }
+        },
+        "x": {
+          "field": "mode",
+          "type": "nominal",
+          "sort": ["Drove", "Public transport", "Worked from home", "Walked / cycled"],
+          "title": null,
+          "axis": { "labelAngle": 0, "orient": "top", "labelFontWeight": 600 }
+        },
+        "color": {
+          "field": "pct",
+          "type": "quantitative",
+          "scale": { "scheme": "blues", "domainMin": 0 },
+          "legend": { "title": "% of workers", "orient": "bottom", "gradientLength": 220 }
+        },
+        "tooltip": [
+          { "field": "area", "title": "Area" },
+          { "field": "mode", "title": "Mode" },
+          { "field": "pct", "title": "% workers", "format": ".1f" }
+        ]
       }
     },
-    "color": {
-      "field": "pct",
-      "type": "quantitative",
-      "scale": {
-        "scheme": "redyellowblue",
-        "reverse": true
-      },
-      "legend": {
-        "title": "% workers"
+    {
+      "mark": { "type": "text", "fontSize": 11, "fontWeight": 600 },
+      "encoding": {
+        "y": { "field": "area", "type": "nominal", "sort": ["Melbourne City", "Port Phillip", "Monash", "Wyndham", "Ballarat", "Victoria", "Australia"] },
+        "x": { "field": "mode", "type": "nominal", "sort": ["Drove", "Public transport", "Worked from home", "Walked / cycled"] },
+        "text": { "field": "pct", "format": ".1f" },
+        "color": {
+          "condition": { "test": "datum.pct > 35", "value": "#fbfaf6" },
+          "value": "#172026"
+        }
       }
-    },
-    "tooltip": [
-      {
-        "field": "area",
-        "title": "Area"
-      },
-      {
-        "field": "mode",
-        "title": "Mode"
-      },
-      {
-        "field": "pct",
-        "title": "% workers",
-        "format": ".1f"
-      }
-    ]
-  }
+    }
+  ]
 }

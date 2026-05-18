@@ -1,174 +1,121 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
+  "description": "Linked geography panel: bubble map of Victorian PT use (left) and car-vs-PT scatter (right) share a legend-bound 'zoneSel' selection. Click a zone in the legend to fade the others on both panels at once.",
   "config": {
     "background": null,
     "font": "Inter",
-    "axis": {
-      "gridColor": "#e7e2d8",
-      "domainColor": "#bdb6a9",
-      "tickColor": "#bdb6a9",
-      "labelColor": "#344047",
-      "titleColor": "#172026",
-      "titleFontSize": 12,
-      "titleFontWeight": 600
-    },
-    "legend": {
-      "labelColor": "#344047",
-      "titleColor": "#172026",
-      "titleFontSize": 12
-    },
-    "view": {
-      "stroke": null
-    }
+    "axis": { "gridColor": "#e7e2d8", "domainColor": "#bdb6a9", "tickColor": "#bdb6a9", "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12, "titleFontWeight": 600 },
+    "legend": { "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12 },
+    "view": { "stroke": null }
   },
-  "width": "container",
-  "height": 520,
-  "projection": {
-    "type": "mercator",
-    "center": [
-      145.1,
-      -37.15
-    ],
-    "scale": 4300
-  },
-  "layer": [
+  "hconcat": [
     {
-      "data": {
-        "url": "data/victoria_outline.geojson",
-        "format": {
-          "type": "json",
-          "property": "features"
-        }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "#eee6da",
-        "stroke": "#9f9587",
-        "strokeWidth": 1.2
-      }
-    },
-    {
-      "data": {
-        "url": "data/victoria_areas.json"
-      },
-      "mark": {
-        "type": "circle",
-        "opacity": 0.86,
-        "stroke": "#fffdf8",
-        "strokeWidth": 1.4,
-        "tooltip": true
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
+      "title": { "text": "Map · PT use across Victoria · click a zone in the legend to highlight", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
+      "width": 360,
+      "height": 460,
+      "projection": { "type": "mercator", "center": [144.7, -37.0], "scale": 3300 },
+      "layer": [
+        {
+          "data": { "url": "data/victoria_outline.geojson", "format": { "type": "json", "property": "features" } },
+          "mark": { "type": "geoshape", "fill": "#eee6da", "stroke": "#9f9587", "strokeWidth": 1.2 }
         },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
+        {
+          "data": { "url": "data/victoria_areas.json" },
+          "mark": { "type": "circle", "stroke": "#fffdf8", "strokeWidth": 1.4, "tooltip": true },
+          "encoding": {
+            "longitude": { "field": "lon", "type": "quantitative" },
+            "latitude": { "field": "lat", "type": "quantitative" },
+            "size": {
+              "field": "ptPct",
+              "type": "quantitative",
+              "scale": { "range": [40, 1800] },
+              "legend": { "title": "PT use (%)", "orient": "bottom-left" }
+            },
+            "color": {
+              "field": "zone",
+              "type": "nominal",
+              "scale": {
+                "domain": ["Inner city", "Inner suburb", "Middle suburb", "Outer suburb", "Peri-urban", "Regional"],
+                "range": ["#063b63", "#1f6fb2", "#4a9ad4", "#80bfe6", "#f0aa4f", "#9e7c5a"]
+              },
+              "legend": { "title": "Area type", "orient": "bottom-right" }
+            },
+            "opacity": { "value": 0.9 },
+            "tooltip": [
+              { "field": "name", "title": "Area" },
+              { "field": "zone", "title": "Area type" },
+              { "field": "ptPct", "title": "PT use %", "format": ".1f" },
+              { "field": "carPct", "title": "Drove %", "format": ".1f" },
+              { "field": "wfhPct", "title": "WFH %", "format": ".1f" }
+            ]
+          }
         },
-        "size": {
-          "field": "ptPct",
-          "type": "quantitative",
-          "scale": {
-            "range": [
-              70,
-              2500
+        {
+          "data": {
+            "values": [
+              { "lon": 144.96, "lat": -37.81, "label": "Melbourne City — PT 16.5%" },
+              { "lon": 143.86, "lat": -37.56, "label": "Ballarat — PT 1.2%" },
+              { "lon": 145.40, "lat": -36.38, "label": "Shepparton — PT 0.4%" }
             ]
           },
-          "legend": {
-            "title": "PT use (%)",
-            "orient": "bottom-left"
+          "mark": { "type": "text", "dx": 12, "dy": -10, "fontSize": 10, "fontWeight": 700, "color": "#172026", "align": "left" },
+          "encoding": {
+            "longitude": { "field": "lon", "type": "quantitative" },
+            "latitude": { "field": "lat", "type": "quantitative" },
+            "text": { "field": "label" }
           }
-        },
-        "color": {
-          "field": "zone",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Inner city",
-              "Inner suburb",
-              "Middle suburb",
-              "Outer suburb",
-              "Peri-urban",
-              "Regional"
-            ],
-            "range": [
-              "#063b63",
-              "#1f6fb2",
-              "#4a9ad4",
-              "#80bfe6",
-              "#f0aa4f",
-              "#9e7c5a"
-            ]
-          },
-          "legend": {
-            "title": "Area type",
-            "orient": "bottom-right"
-          }
-        },
-        "tooltip": [
-          {
-            "field": "name",
-            "title": "Area"
-          },
-          {
-            "field": "zone",
-            "title": "Area type"
-          },
-          {
-            "field": "ptPct",
-            "title": "Public transport %",
-            "format": ".1f"
-          },
-          {
-            "field": "carPct",
-            "title": "Car travel %",
-            "format": ".1f"
-          },
-          {
-            "field": "wfhPct",
-            "title": "Work from home %",
-            "format": ".1f"
-          }
-        ]
-      }
+        }
+      ]
     },
     {
-      "data": {
-        "values": [
-          {
-            "lon": 144.96,
-            "lat": -37.81,
-            "label": "Melbourne\nCity"
+      "title": { "text": "Scatter · car-as-driver vs PT use", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
+      "width": 360,
+      "height": 460,
+      "data": { "url": "data/victoria_areas.json" },
+      "layer": [
+        {
+          "transform": [{ "regression": "ptPct", "on": "carPct" }],
+          "mark": { "type": "line", "color": "#94918a", "strokeDash": [5, 5] },
+          "encoding": {
+            "x": { "field": "carPct", "type": "quantitative", "scale": { "domain": [10, 75] } },
+            "y": { "field": "ptPct", "type": "quantitative", "scale": { "domain": [0, 20] } }
           }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "dx": 28,
-        "dy": -18,
-        "fontSize": 12,
-        "fontWeight": 700,
-        "color": "#172026"
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
         },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
+        {
+          "mark": { "type": "point", "filled": true, "size": 130, "tooltip": true, "stroke": "#fbfaf6", "strokeWidth": 1.4 },
+          "encoding": {
+            "x": { "field": "carPct", "type": "quantitative", "title": "Drove to work (%)", "scale": { "domain": [10, 75] } },
+            "y": { "field": "ptPct", "type": "quantitative", "title": "Used public transport (%)", "scale": { "domain": [0, 20] } },
+            "color": {
+              "field": "zone",
+              "type": "nominal",
+              "scale": {
+                "domain": ["Inner city", "Inner suburb", "Middle suburb", "Outer suburb", "Peri-urban", "Regional"],
+                "range": ["#063b63", "#1f6fb2", "#4a9ad4", "#80bfe6", "#f0aa4f", "#9e7c5a"]
+              },
+              "legend": null
+            },
+            "opacity": { "value": 0.9 },
+            "tooltip": [
+              { "field": "name", "title": "Area" },
+              { "field": "zone", "title": "Area type" },
+              { "field": "carPct", "title": "Drove %", "format": ".1f" },
+              { "field": "ptPct", "title": "PT %", "format": ".1f" },
+              { "field": "wfhPct", "title": "WFH %", "format": ".1f" }
+            ]
+          }
         },
-        "text": {
-          "field": "label"
+        {
+          "transform": [{ "filter": "datum.name === 'Melbourne City' || datum.name === 'Wyndham' || datum.name === 'Ballarat' || datum.name === 'Port Phillip'" }],
+          "mark": { "type": "text", "dx": 10, "dy": -10, "fontSize": 10, "fontWeight": 700, "color": "#172026", "align": "left" },
+          "encoding": {
+            "x": { "field": "carPct", "type": "quantitative" },
+            "y": { "field": "ptPct", "type": "quantitative" },
+            "text": { "field": "name" }
+          }
         }
-      }
+      ]
     }
-  ]
+  ],
+  "resolve": { "scale": { "color": "independent" } }
 }

@@ -1,82 +1,18 @@
 [
-  {
-    "area": "Melbourne City",
-    "category": "No vehicle",
-    "pct": 45.3
-  },
-  {
-    "area": "Melbourne City",
-    "category": "1 vehicle",
-    "pct": 38.2
-  },
-  {
-    "area": "Melbourne City",
-    "category": "2 vehicles",
-    "pct": 13.4
-  },
-  {
-    "area": "Melbourne City",
-    "category": "3+ vehicles",
-    "pct": 3.1
-  },
-  {
-    "area": "Victoria",
-    "category": "No vehicle",
-    "pct": 7.5
-  },
-  {
-    "area": "Victoria",
-    "category": "1 vehicle",
-    "pct": 37.5
-  },
-  {
-    "area": "Victoria",
-    "category": "2 vehicles",
-    "pct": 40.3
-  },
-  {
-    "area": "Victoria",
-    "category": "3+ vehicles",
-    "pct": 14.7
-  },
-  {
-    "area": "Australia",
-    "category": "No vehicle",
-    "pct": 7.3
-  },
-  {
-    "area": "Australia",
-    "category": "1 vehicle",
-    "pct": 37.7
-  },
-  {
-    "area": "Australia",
-    "category": "2 vehicles",
-    "pct": 40.8
-  },
-  {
-    "area": "Australia",
-    "category": "3+ vehicles",
-    "pct": 14.2
-  },
-  {
-    "area": "Wyndham",
-    "category": "No vehicle",
-    "pct": 3.6
-  },
-  {
-    "area": "Wyndham",
-    "category": "1 vehicle",
-    "pct": 29.4
-  },
-  {
-    "area": "Wyndham",
-    "category": "2 vehicles",
-    "pct": 45.8
-  },
-  {
-    "area": "Wyndham",
-    "category": "3+ vehicles",
-    "pct": 21.2
-  }
+  { "area": "Melbourne City", "category": "No vehicle",  "pct": 45.3 },
+  { "area": "Melbourne City", "category": "1 vehicle",   "pct": 38.2 },
+  { "area": "Melbourne City", "category": "2 vehicles",  "pct": 13.4 },
+  { "area": "Melbourne City", "category": "3+ vehicles", "pct": 3.1  },
+  { "area": "Victoria",       "category": "No vehicle",  "pct": 7.5  },
+  { "area": "Victoria",       "category": "1 vehicle",   "pct": 37.5 },
+  { "area": "Victoria",       "category": "2 vehicles",  "pct": 40.3 },
+  { "area": "Victoria",       "category": "3+ vehicles", "pct": 14.7 },
+  { "area": "Australia",      "category": "No vehicle",  "pct": 7.3  },
+  { "area": "Australia",      "category": "1 vehicle",   "pct": 37.7 },
+  { "area": "Australia",      "category": "2 vehicles",  "pct": 40.8 },
+  { "area": "Australia",      "category": "3+ vehicles", "pct": 14.2 },
+  { "area": "Wyndham",        "category": "No vehicle",  "pct": 3.6  },
+  { "area": "Wyndham",        "category": "1 vehicle",   "pct": 29.4 },
+  { "area": "Wyndham",        "category": "2 vehicles",  "pct": 45.8 },
+  { "area": "Wyndham",        "category": "3+ vehicles", "pct": 21.2 }
 ]

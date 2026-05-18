@@ -1,47 +1,11 @@
 [
-  {
-    "year": "2011",
-    "mode": "Train",
-    "users": 632348
-  },
-  {
-    "year": "2016",
-    "mode": "Train",
-    "users": 770765
-  },
-  {
-    "year": "2021",
-    "mode": "Train",
-    "users": 299053
-  },
-  {
-    "year": "2011",
-    "mode": "Bus",
-    "users": 347654
-  },
-  {
-    "year": "2016",
-    "mode": "Bus",
-    "users": 371842
-  },
-  {
-    "year": "2021",
-    "mode": "Bus",
-    "users": 212919
-  },
-  {
-    "year": "2011",
-    "mode": "Tram / ferry",
-    "users": 51751
-  },
-  {
-    "year": "2016",
-    "mode": "Tram / ferry",
-    "users": 65810
-  },
-  {
-    "year": "2021",
-    "mode": "Tram / ferry",
-    "users": 34275
-  }
+  { "year": "2011", "mode": "Train",        "users": 632348 },
+  { "year": "2016", "mode": "Train",        "users": 770765 },
+  { "year": "2021", "mode": "Train",        "users": 299053 },
+  { "year": "2011", "mode": "Bus",          "users": 347654 },
+  { "year": "2016", "mode": "Bus",          "users": 371842 },
+  { "year": "2021", "mode": "Bus",          "users": 212919 },
+  { "year": "2011", "mode": "Tram / ferry", "users": 66724  },
+  { "year": "2016", "mode": "Tram / ferry", "users": 83068  },
+  { "year": "2021", "mode": "Tram / ferry", "users": 42745  }
 ]

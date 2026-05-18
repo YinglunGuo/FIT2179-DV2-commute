@@ -1,102 +1,22 @@
 [
-  {
-    "year": 1976,
-    "type": "Walking",
-    "count": 368000
-  },
-  {
-    "year": 1976,
-    "type": "Cycling",
-    "count": 108001
-  },
-  {
-    "year": 1981,
-    "type": "Walking",
-    "count": 335000
-  },
-  {
-    "year": 1981,
-    "type": "Cycling",
-    "count": 90000
-  },
-  {
-    "year": 1986,
-    "type": "Walking",
-    "count": 318000
-  },
-  {
-    "year": 1986,
-    "type": "Cycling",
-    "count": 82000
-  },
-  {
-    "year": 1991,
-    "type": "Walking",
-    "count": 340000
-  },
-  {
-    "year": 1991,
-    "type": "Cycling",
-    "count": 88000
-  },
-  {
-    "year": 1996,
-    "type": "Walking",
-    "count": 350000
-  },
-  {
-    "year": 1996,
-    "type": "Cycling",
-    "count": 105000
-  },
-  {
-    "year": 2001,
-    "type": "Walking",
-    "count": 368000
-  },
-  {
-    "year": 2001,
-    "type": "Cycling",
-    "count": 95000
-  },
-  {
-    "year": 2006,
-    "type": "Walking",
-    "count": 378000
-  },
-  {
-    "year": 2006,
-    "type": "Cycling",
-    "count": 105000
-  },
-  {
-    "year": 2011,
-    "type": "Walking",
-    "count": 373000
-  },
-  {
-    "year": 2011,
-    "type": "Cycling",
-    "count": 108108
-  },
-  {
-    "year": 2016,
-    "type": "Walking",
-    "count": 368000
-  },
-  {
-    "year": 2016,
-    "type": "Cycling",
-    "count": 116000
-  },
-  {
-    "year": 2021,
-    "type": "Walking",
-    "count": 302000
-  },
-  {
-    "year": 2021,
-    "type": "Cycling",
-    "count": 83498
-  }
+  { "year": 1976, "type": "Walking", "count": 376000 },
+  { "year": 1976, "type": "Cycling", "count": 100001 },
+  { "year": 1981, "type": "Walking", "count": 323000 },
+  { "year": 1981, "type": "Cycling", "count": 86696  },
+  { "year": 1986, "type": "Walking", "count": 335000 },
+  { "year": 1986, "type": "Cycling", "count": 90438  },
+  { "year": 1991, "type": "Walking", "count": 353000 },
+  { "year": 1991, "type": "Cycling", "count": 94208  },
+  { "year": 1996, "type": "Walking", "count": 306000 },
+  { "year": 1996, "type": "Cycling", "count": 82643  },
+  { "year": 2001, "type": "Walking", "count": 311000 },
+  { "year": 2001, "type": "Cycling", "count": 83962  },
+  { "year": 2006, "type": "Walking", "count": 361000 },
+  { "year": 2006, "type": "Cycling", "count": 96343  },
+  { "year": 2011, "type": "Walking", "count": 381000 },
+  { "year": 2011, "type": "Cycling", "count": 100108 },
+  { "year": 2016, "type": "Walking", "count": 370427 },
+  { "year": 2016, "type": "Cycling", "count": 107962 },
+  { "year": 2021, "type": "Walking", "count": 306045 },
+  { "year": 2021, "type": "Cycling", "count": 79457  }
 ]

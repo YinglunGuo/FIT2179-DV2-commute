@@ -1,91 +1,63 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
+  "description": "Stacked area of walking and cycling commuters in Australia at every Census from 1976 to 2021. Active transport peaked in 2011 and fell back to a 45-year low in 2021.",
+  "autosize": { "type": "fit", "contains": "padding" },
   "config": {
     "background": null,
     "font": "Inter",
-    "axis": {
-      "gridColor": "#e7e2d8",
-      "domainColor": "#bdb6a9",
-      "tickColor": "#bdb6a9",
-      "labelColor": "#344047",
-      "titleColor": "#172026",
-      "titleFontSize": 12,
-      "titleFontWeight": 600
-    },
-    "legend": {
-      "labelColor": "#344047",
-      "titleColor": "#172026",
-      "titleFontSize": 12
-    },
-    "view": {
-      "stroke": null
-    }
+    "axis": { "gridColor": "#e7e2d8", "domainColor": "#bdb6a9", "tickColor": "#bdb6a9", "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12, "titleFontWeight": 600 },
+    "legend": { "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12 },
+    "view": { "stroke": null }
   },
   "width": "container",
-  "height": 320,
-  "data": {
-    "url": "data/active_transport.json"
-  },
-  "mark": {
-    "type": "area",
-    "opacity": 0.78,
-    "tooltip": true
-  },
-  "encoding": {
-    "x": {
-      "field": "year",
-      "type": "quantitative",
-      "title": "Census year",
-      "axis": {
-        "format": "d"
-      }
-    },
-    "y": {
-      "field": "count",
-      "type": "quantitative",
-      "title": "Workers",
-      "stack": "zero",
-      "axis": {
-        "format": "~s"
-      }
-    },
-    "color": {
-      "field": "type",
-      "type": "nominal",
-      "scale": {
-        "domain": [
-          "Walking",
-          "Cycling"
-        ],
-        "range": [
-          "#d9852b",
-          "#7b4fa1"
+  "height": 340,
+  "padding": 6,
+  "data": { "url": "data/active_transport.json" },
+  "layer": [
+    {
+      "mark": { "type": "area", "opacity": 0.85, "tooltip": true },
+      "encoding": {
+        "x": { "field": "year", "type": "quantitative", "title": "Census year", "axis": { "format": "d", "values": [1976, 1981, 1986, 1991, 1996, 2001, 2006, 2011, 2016, 2021] }, "scale": { "domain": [1976, 2021] } },
+        "y": { "field": "count", "type": "quantitative", "title": "Workers (Census day)", "stack": "zero", "axis": { "format": "~s" } },
+        "color": {
+          "field": "type",
+          "type": "nominal",
+          "scale": { "domain": ["Walking", "Cycling"], "range": ["#d9852b", "#7b4fa1"] },
+          "legend": { "title": "Active mode", "orient": "top-right" }
+        },
+        "tooltip": [
+          { "field": "year", "title": "Year", "format": "d" },
+          { "field": "type", "title": "Mode" },
+          { "field": "count", "title": "Workers", "format": ",d" }
         ]
-      },
-      "legend": {
-        "title": "Active mode",
-        "orient": "top-right"
       }
     },
-    "tooltip": [
-      {
-        "field": "year",
-        "title": "Year",
-        "format": "d"
-      },
-      {
-        "field": "type",
-        "title": "Mode"
-      },
-      {
-        "field": "count",
-        "title": "Workers",
-        "format": ",d"
+    {
+      "data": { "values": [{ "year": 2011, "count": 555000, "label": "Peak: ~481k\nactive commuters (2011)" }] },
+      "mark": { "type": "text", "align": "center", "fontSize": 11, "fontWeight": 600, "color": "#172026", "lineBreak": "\n" },
+      "encoding": {
+        "x": { "field": "year", "type": "quantitative" },
+        "y": { "field": "count", "type": "quantitative" },
+        "text": { "field": "label" }
       }
-    ]
-  }
+    },
+    {
+      "data": { "values": [{ "year": 2021, "count": 460000, "label": "2021: 45-year low\n(385k, −20%)" }] },
+      "mark": { "type": "text", "align": "right", "dx": -10, "fontSize": 11, "fontWeight": 600, "color": "#7a3c33", "lineBreak": "\n" },
+      "encoding": {
+        "x": { "field": "year", "type": "quantitative" },
+        "y": { "field": "count", "type": "quantitative" },
+        "text": { "field": "label" }
+      }
+    },
+    {
+      "data": { "values": [{ "year": 1976, "count": 100000, "label": "Cycling never recovered\nits 1970s share" }] },
+      "mark": { "type": "text", "align": "left", "dx": 8, "fontSize": 10, "fontStyle": "italic", "color": "#5e3a76", "lineBreak": "\n" },
+      "encoding": {
+        "x": { "field": "year", "type": "quantitative" },
+        "y": { "field": "count", "type": "quantitative" },
+        "text": { "field": "label" }
+      }
+    }
+  ]
 }

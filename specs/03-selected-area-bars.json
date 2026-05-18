@@ -1,96 +1,55 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
+  "description": "Grouped bars comparing four representative Victorian areas (Melbourne City, Monash, Wyndham, Ballarat) plus Victorian and Australian benchmarks across three modes.",
+  "autosize": { "type": "fit", "contains": "padding" },
   "config": {
     "background": null,
     "font": "Inter",
-    "axis": {
-      "gridColor": "#e7e2d8",
-      "domainColor": "#bdb6a9",
-      "tickColor": "#bdb6a9",
-      "labelColor": "#344047",
-      "titleColor": "#172026",
-      "titleFontSize": 12,
-      "titleFontWeight": 600
-    },
-    "legend": {
-      "labelColor": "#344047",
-      "titleColor": "#172026",
-      "titleFontSize": 12
-    },
-    "view": {
-      "stroke": null
-    }
+    "axis": { "gridColor": "#e7e2d8", "domainColor": "#bdb6a9", "tickColor": "#bdb6a9", "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12, "titleFontWeight": 600 },
+    "legend": { "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12 },
+    "view": { "stroke": null }
   },
   "width": "container",
-  "height": 340,
-  "data": {
-    "url": "data/area_compare.json"
-  },
-  "mark": {
-    "type": "bar",
-    "tooltip": true,
-    "cornerRadiusEnd": 3
-  },
-  "encoding": {
-    "x": {
-      "field": "pct",
-      "type": "quantitative",
-      "title": "% of workers"
-    },
-    "y": {
-      "field": "area",
-      "type": "nominal",
-      "sort": [
-        "Melbourne City",
-        "Monash",
-        "Wyndham",
-        "Ballarat",
-        "Victoria",
-        "Australia"
-      ],
-      "title": null
-    },
-    "color": {
-      "field": "mode",
-      "type": "nominal",
-      "scale": {
-        "domain": [
-          "Car travel",
-          "Public transport",
-          "Work from home"
-        ],
-        "range": [
-          "#c83f32",
-          "#1f6fb2",
-          "#2f8f5b"
+  "height": 360,
+  "padding": 6,
+  "data": { "url": "data/area_compare.json" },
+  "layer": [
+    {
+      "mark": { "type": "bar", "tooltip": true, "cornerRadiusEnd": 3 },
+      "encoding": {
+        "x": { "field": "pct", "type": "quantitative", "title": "% of workers", "scale": { "domain": [0, 70] } },
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": ["Melbourne City", "Monash", "Wyndham", "Ballarat", "Victoria", "Australia"],
+          "title": null,
+          "axis": { "labelFontWeight": 600 }
+        },
+        "color": {
+          "field": "mode",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Drove", "Public transport", "Worked from home"],
+            "range": ["#c83f32", "#1f6fb2", "#2f8f5b"]
+          },
+          "legend": { "title": "Mode", "orient": "top" }
+        },
+        "yOffset": { "field": "mode" },
+        "tooltip": [
+          { "field": "area", "title": "Area" },
+          { "field": "mode", "title": "Mode" },
+          { "field": "pct", "title": "% workers", "format": ".1f" }
         ]
-      },
-      "legend": {
-        "title": "Mode",
-        "orient": "top"
       }
     },
-    "yOffset": {
-      "field": "mode"
-    },
-    "tooltip": [
-      {
-        "field": "area",
-        "title": "Area"
-      },
-      {
-        "field": "mode",
-        "title": "Mode"
-      },
-      {
-        "field": "pct",
-        "title": "% workers",
-        "format": ".1f"
+    {
+      "mark": { "type": "text", "align": "left", "baseline": "middle", "dx": 4, "fontSize": 10, "fontWeight": 600, "color": "#172026" },
+      "encoding": {
+        "x": { "field": "pct", "type": "quantitative" },
+        "y": { "field": "area", "type": "nominal", "sort": ["Melbourne City", "Monash", "Wyndham", "Ballarat", "Victoria", "Australia"] },
+        "text": { "field": "pct", "format": ".1f" },
+        "yOffset": { "field": "mode" }
       }
-    ]
-  }
+    }
+  ]
 }

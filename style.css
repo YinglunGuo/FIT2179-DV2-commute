@@ -35,8 +35,13 @@ h2 { font-size: clamp(2rem, 4vw, 3.6rem); max-width: 780px; }
 .brief-grid div { background: var(--ink); padding: 24px; min-height: 190px; }
 .brief-grid span { color: #f2b66d; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; font-size: .78rem; }
 .brief-grid p { margin: 14px 0 0; color: rgba(255,255,255,.78); font-size: .95rem; }
-.story-block, .conclusion { padding: 76px 0 44px; }
+.story-block, .conclusion, .chapter, .methodology { padding: 64px 0 22px; }
+.chapter { padding-top: 72px; padding-bottom: 12px; border-top: 1px solid var(--rule); margin-top: 22px; }
+.methodology { padding: 44px 0 60px; color: #3b464c; font-size: .95rem; max-width: 940px; }
+.methodology p { color: #3b464c; line-height: 1.7; }
 .lead, .conclusion p { color: #3b464c; font-size: 1.08rem; max-width: 820px; }
+.chart-host.tall { min-height: 500px; }
+code { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace; font-size: .85em; background: #efe9dc; padding: 1px 6px; border-radius: 3px; color: #3a2f1c; }
 .charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; padding: 20px 0 70px; }
 .chart-card { background: var(--panel); border: 1px solid var(--rule); padding: 22px; min-width: 0; box-shadow: 0 10px 30px rgba(60,45,25,.07); }
 .chart-card.wide { grid-column: 1 / -1; }

@@ -1,26 +1,10 @@
 [
-  {
-    "mode": "Car travel",
-    "pct": 54.5
-  },
-  {
-    "mode": "Work from home",
-    "pct": 25.7
-  },
-  {
-    "mode": "Public transport",
-    "pct": 4.4
-  },
-  {
-    "mode": "Walk only",
-    "pct": 2.8
-  },
-  {
-    "mode": "Bicycle",
-    "pct": 1.1
-  },
-  {
-    "mode": "Other / not stated",
-    "pct": 11.5
-  }
+  { "mode": "Car (as driver)",      "pct": 50.3 },
+  { "mode": "Worked from home",     "pct": 25.7 },
+  { "mode": "Did not go to work",   "pct": 11.7 },
+  { "mode": "Public transport",     "pct": 4.3  },
+  { "mode": "Car (as passenger)",   "pct": 3.5  },
+  { "mode": "Walked only",          "pct": 2.6  },
+  { "mode": "Other / not stated",   "pct": 1.4  },
+  { "mode": "Bicycle",              "pct": 0.5  }
 ]

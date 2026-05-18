@@ -1,182 +1,21 @@
 [
-  {
-    "name": "Melbourne City",
-    "lat": -37.81,
-    "lon": 144.96,
-    "ptPct": 17.2,
-    "carPct": 16.6,
-    "wfhPct": 38.6,
-    "zone": "Inner city"
-  },
-  {
-    "name": "Port Phillip",
-    "lat": -37.86,
-    "lon": 144.97,
-    "ptPct": 12.5,
-    "carPct": 26.8,
-    "wfhPct": 35.2,
-    "zone": "Inner city"
-  },
-  {
-    "name": "Stonnington West",
-    "lat": -37.84,
-    "lon": 144.99,
-    "ptPct": 11.2,
-    "carPct": 30.1,
-    "wfhPct": 34.5,
-    "zone": "Inner city"
-  },
-  {
-    "name": "Boroondara",
-    "lat": -37.82,
-    "lon": 145.07,
-    "ptPct": 9.8,
-    "carPct": 39.5,
-    "wfhPct": 33.2,
-    "zone": "Inner city"
-  },
-  {
-    "name": "Darebin South",
-    "lat": -37.77,
-    "lon": 144.99,
-    "ptPct": 8.9,
-    "carPct": 38.2,
-    "wfhPct": 28.6,
-    "zone": "Inner suburb"
-  },
-  {
-    "name": "Whitehorse West",
-    "lat": -37.82,
-    "lon": 145.14,
-    "ptPct": 7.1,
-    "carPct": 46.5,
-    "wfhPct": 27.8,
-    "zone": "Middle suburb"
-  },
-  {
-    "name": "Monash",
-    "lat": -37.87,
-    "lon": 145.12,
-    "ptPct": 6.1,
-    "carPct": 49,
-    "wfhPct": 31.6,
-    "zone": "Middle suburb"
-  },
-  {
-    "name": "Wyndham",
-    "lat": -37.9,
-    "lon": 144.66,
-    "ptPct": 5.9,
-    "carPct": 57.1,
-    "wfhPct": 25.3,
-    "zone": "Outer suburb"
-  },
-  {
-    "name": "Whittlesea",
-    "lat": -37.5,
-    "lon": 145.12,
-    "ptPct": 6.2,
-    "carPct": 56.4,
-    "wfhPct": 22.8,
-    "zone": "Outer suburb"
-  },
-  {
-    "name": "Hume",
-    "lat": -37.55,
-    "lon": 144.95,
-    "ptPct": 5.1,
-    "carPct": 58.2,
-    "wfhPct": 22.1,
-    "zone": "Outer suburb"
-  },
-  {
-    "name": "Melton",
-    "lat": -37.68,
-    "lon": 144.58,
-    "ptPct": 4.8,
-    "carPct": 59.8,
-    "wfhPct": 21.2,
-    "zone": "Outer suburb"
-  },
-  {
-    "name": "Knox",
-    "lat": -37.88,
-    "lon": 145.24,
-    "ptPct": 4.2,
-    "carPct": 55.3,
-    "wfhPct": 26.5,
-    "zone": "Outer suburb"
-  },
-  {
-    "name": "Frankston",
-    "lat": -38.15,
-    "lon": 145.13,
-    "ptPct": 4.8,
-    "carPct": 57.8,
-    "wfhPct": 23.5,
-    "zone": "Outer suburb"
-  },
-  {
-    "name": "Mornington Peninsula",
-    "lat": -38.33,
-    "lon": 145.03,
-    "ptPct": 2.5,
-    "carPct": 63.4,
-    "wfhPct": 24.6,
-    "zone": "Peri-urban"
-  },
-  {
-    "name": "Geelong",
-    "lat": -38.15,
-    "lon": 144.35,
-    "ptPct": 2.1,
-    "carPct": 64.8,
-    "wfhPct": 20.5,
-    "zone": "Regional"
-  },
-  {
-    "name": "Ballarat",
-    "lat": -37.56,
-    "lon": 143.86,
-    "ptPct": 1.2,
-    "carPct": 67.4,
-    "wfhPct": 15.3,
-    "zone": "Regional"
-  },
-  {
-    "name": "Bendigo",
-    "lat": -36.76,
-    "lon": 144.28,
-    "ptPct": 0.8,
-    "carPct": 68.9,
-    "wfhPct": 14.2,
-    "zone": "Regional"
-  },
-  {
-    "name": "Shepparton",
-    "lat": -36.38,
-    "lon": 145.4,
-    "ptPct": 0.6,
-    "carPct": 67.5,
-    "wfhPct": 12.8,
-    "zone": "Regional"
-  },
-  {
-    "name": "Wodonga",
-    "lat": -36.12,
-    "lon": 146.87,
-    "ptPct": 0.4,
-    "carPct": 70.2,
-    "wfhPct": 13.5,
-    "zone": "Regional"
-  },
-  {
-    "name": "Warrnambool",
-    "lat": -38.38,
-    "lon": 142.48,
-    "ptPct": 0.3,
-    "carPct": 69.8,
-    "wfhPct": 13.2,
-    "zone": "Regional"
-  }
+  { "name": "Melbourne City",       "lat": -37.81, "lon": 144.96, "ptPct": 16.5, "carPct": 15.7, "wfhPct": 38.6, "zone": "Inner city" },
+  { "name": "Port Phillip",         "lat": -37.86, "lon": 144.97, "ptPct": 7.8,  "carPct": 28.6, "wfhPct": 43.9, "zone": "Inner city" },
+  { "name": "Yarra",                "lat": -37.80, "lon": 144.99, "ptPct": 8.1,  "carPct": 26.0, "wfhPct": 46.9, "zone": "Inner suburb" },
+  { "name": "Stonnington",          "lat": -37.85, "lon": 145.02, "ptPct": 8.2,  "carPct": 30.0, "wfhPct": 44.0, "zone": "Inner suburb" },
+  { "name": "Boroondara",           "lat": -37.82, "lon": 145.07, "ptPct": 5.3,  "carPct": 36.5, "wfhPct": 39.6, "zone": "Inner suburb" },
+  { "name": "Darebin",              "lat": -37.74, "lon": 145.01, "ptPct": 7.1,  "carPct": 38.5, "wfhPct": 36.0, "zone": "Inner suburb" },
+  { "name": "Whitehorse",           "lat": -37.82, "lon": 145.14, "ptPct": 5.0,  "carPct": 44.8, "wfhPct": 29.9, "zone": "Middle suburb" },
+  { "name": "Monash",               "lat": -37.88, "lon": 145.12, "ptPct": 6.1,  "carPct": 47.5, "wfhPct": 31.6, "zone": "Middle suburb" },
+  { "name": "Wyndham",              "lat": -37.90, "lon": 144.66, "ptPct": 5.9,  "carPct": 55.1, "wfhPct": 25.3, "zone": "Outer suburb" },
+  { "name": "Whittlesea",           "lat": -37.50, "lon": 145.12, "ptPct": 4.0,  "carPct": 61.5, "wfhPct": 22.0, "zone": "Outer suburb" },
+  { "name": "Hume",                 "lat": -37.55, "lon": 144.95, "ptPct": 4.3,  "carPct": 63.8, "wfhPct": 17.8, "zone": "Outer suburb" },
+  { "name": "Melton",               "lat": -37.68, "lon": 144.58, "ptPct": 3.7,  "carPct": 63.3, "wfhPct": 22.0, "zone": "Outer suburb" },
+  { "name": "Knox",                 "lat": -37.88, "lon": 145.24, "ptPct": 2.5,  "carPct": 59.5, "wfhPct": 25.6, "zone": "Outer suburb" },
+  { "name": "Frankston",            "lat": -38.15, "lon": 145.13, "ptPct": 3.0,  "carPct": 58.7, "wfhPct": 24.7, "zone": "Outer suburb" },
+  { "name": "Mornington Peninsula", "lat": -38.33, "lon": 145.03, "ptPct": 1.0,  "carPct": 57.7, "wfhPct": 22.6, "zone": "Peri-urban" },
+  { "name": "Greater Geelong",      "lat": -38.15, "lon": 144.35, "ptPct": 1.5,  "carPct": 68.6, "wfhPct": 15.4, "zone": "Regional" },
+  { "name": "Ballarat",             "lat": -37.56, "lon": 143.86, "ptPct": 1.2,  "carPct": 66.4, "wfhPct": 15.5, "zone": "Regional" },
+  { "name": "Greater Bendigo",      "lat": -36.76, "lon": 144.28, "ptPct": 0.9,  "carPct": 67.1, "wfhPct": 14.3, "zone": "Regional" },
+  { "name": "Greater Shepparton",   "lat": -36.38, "lon": 145.40, "ptPct": 0.4,  "carPct": 68.2, "wfhPct": 12.7, "zone": "Regional" }
 ]

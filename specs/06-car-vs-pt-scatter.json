@@ -1,152 +1,61 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
+  "description": "Small multiples: Working-from-home rate by state and territory across all Australian Census years 1976-2021. The 2021 spike isolates a structural break that decades of prior data did not show.",
   "config": {
     "background": null,
     "font": "Inter",
-    "axis": {
-      "gridColor": "#e7e2d8",
-      "domainColor": "#bdb6a9",
-      "tickColor": "#bdb6a9",
-      "labelColor": "#344047",
-      "titleColor": "#172026",
-      "titleFontSize": 12,
-      "titleFontWeight": 600
-    },
-    "legend": {
-      "labelColor": "#344047",
-      "titleColor": "#172026",
-      "titleFontSize": 12
-    },
-    "view": {
-      "stroke": null
-    }
+    "axis": { "gridColor": "#e7e2d8", "domainColor": "#bdb6a9", "tickColor": "#bdb6a9", "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 11, "titleFontWeight": 600 },
+    "legend": { "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12 },
+    "view": { "stroke": null }
   },
-  "width": "container",
-  "height": 360,
-  "data": {
-    "url": "data/victoria_areas.json"
+  "data": { "url": "data/wfh_state_trend.json" },
+  "facet": {
+    "field": "state",
+    "type": "nominal",
+    "columns": 4,
+    "sort": ["NSW", "VIC", "QLD", "ACT", "SA", "TAS", "WA", "NT"],
+    "header": { "labelFontSize": 12, "labelFontWeight": 700, "labelColor": "#172026", "title": null }
   },
-  "layer": [
-    {
-      "transform": [
-        {
-          "regression": "ptPct",
-          "on": "carPct"
+  "spec": {
+    "width": 170,
+    "height": 110,
+    "layer": [
+      {
+        "mark": { "type": "area", "color": "#cfd9da", "opacity": 0.7, "line": false },
+        "encoding": {
+          "x": { "field": "year", "type": "quantitative", "scale": { "domain": [1976, 2021] }, "axis": { "format": "d", "values": [1976, 1996, 2021], "title": null } },
+          "y": { "field": "pct", "type": "quantitative", "scale": { "domain": [0, 33] }, "axis": { "title": null, "values": [0, 10, 20, 30], "format": "d", "tickCount": 4 } }
         }
-      ],
-      "mark": {
-        "type": "line",
-        "color": "#777",
-        "strokeDash": [
-          5,
-          5
-        ]
       },
-      "encoding": {
-        "x": {
-          "field": "carPct",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              10,
-              75
-            ]
-          }
-        },
-        "y": {
-          "field": "ptPct",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              20
-            ]
-          }
+      {
+        "mark": { "type": "line", "color": "#5e6a71", "strokeWidth": 1.5 },
+        "encoding": {
+          "x": { "field": "year", "type": "quantitative" },
+          "y": { "field": "pct", "type": "quantitative" }
+        }
+      },
+      {
+        "transform": [{ "filter": "datum.year === 2021" }],
+        "mark": { "type": "point", "filled": true, "size": 80, "color": "#c83f32", "stroke": "#fbfaf6", "strokeWidth": 1.5 },
+        "encoding": {
+          "x": { "field": "year", "type": "quantitative" },
+          "y": { "field": "pct", "type": "quantitative" },
+          "tooltip": [
+            { "field": "state", "title": "State / territory" },
+            { "field": "year", "title": "Year" },
+            { "field": "pct", "title": "WFH %", "format": ".1f" }
+          ]
+        }
+      },
+      {
+        "transform": [{ "filter": "datum.year === 2021" }],
+        "mark": { "type": "text", "align": "right", "dx": -6, "dy": -8, "fontSize": 11, "fontWeight": 800, "color": "#c83f32" },
+        "encoding": {
+          "x": { "field": "year", "type": "quantitative" },
+          "y": { "field": "pct", "type": "quantitative" },
+          "text": { "field": "pct", "format": ".1f" }
         }
       }
-    },
-    {
-      "mark": {
-        "type": "point",
-        "filled": true,
-        "size": 95,
-        "opacity": 0.84,
-        "tooltip": true
-      },
-      "encoding": {
-        "x": {
-          "field": "carPct",
-          "type": "quantitative",
-          "title": "Car travel (%)",
-          "scale": {
-            "domain": [
-              10,
-              75
-            ]
-          }
-        },
-        "y": {
-          "field": "ptPct",
-          "type": "quantitative",
-          "title": "Public transport (%)",
-          "scale": {
-            "domain": [
-              0,
-              20
-            ]
-          }
-        },
-        "color": {
-          "field": "zone",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Inner city",
-              "Inner suburb",
-              "Middle suburb",
-              "Outer suburb",
-              "Peri-urban",
-              "Regional"
-            ],
-            "range": [
-              "#063b63",
-              "#1f6fb2",
-              "#4a9ad4",
-              "#80bfe6",
-              "#f0aa4f",
-              "#9e7c5a"
-            ]
-          },
-          "legend": {
-            "title": "Area type",
-            "orient": "bottom"
-          }
-        },
-        "tooltip": [
-          {
-            "field": "name",
-            "title": "Area"
-          },
-          {
-            "field": "zone",
-            "title": "Area type"
-          },
-          {
-            "field": "carPct",
-            "title": "Car travel %",
-            "format": ".1f"
-          },
-          {
-            "field": "ptPct",
-            "title": "PT use %",
-            "format": ".1f"
-          }
-        ]
-      }
-    }
-  ]
+    ]
+  }
 }

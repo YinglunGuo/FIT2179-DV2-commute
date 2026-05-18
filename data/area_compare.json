@@ -1,92 +1,25 @@
 [
-  {
-    "area": "Melbourne City",
-    "mode": "Car travel",
-    "pct": 16.6
-  },
-  {
-    "area": "Melbourne City",
-    "mode": "Public transport",
-    "pct": 17.2
-  },
-  {
-    "area": "Melbourne City",
-    "mode": "Work from home",
-    "pct": 38.6
-  },
-  {
-    "area": "Monash",
-    "mode": "Car travel",
-    "pct": 49
-  },
-  {
-    "area": "Monash",
-    "mode": "Public transport",
-    "pct": 6.1
-  },
-  {
-    "area": "Monash",
-    "mode": "Work from home",
-    "pct": 31.6
-  },
-  {
-    "area": "Wyndham",
-    "mode": "Car travel",
-    "pct": 57.1
-  },
-  {
-    "area": "Wyndham",
-    "mode": "Public transport",
-    "pct": 5.9
-  },
-  {
-    "area": "Wyndham",
-    "mode": "Work from home",
-    "pct": 25.3
-  },
-  {
-    "area": "Ballarat",
-    "mode": "Car travel",
-    "pct": 67.4
-  },
-  {
-    "area": "Ballarat",
-    "mode": "Public transport",
-    "pct": 1.2
-  },
-  {
-    "area": "Ballarat",
-    "mode": "Work from home",
-    "pct": 15.3
-  },
-  {
-    "area": "Victoria",
-    "mode": "Car travel",
-    "pct": 54.5
-  },
-  {
-    "area": "Victoria",
-    "mode": "Public transport",
-    "pct": 4.4
-  },
-  {
-    "area": "Victoria",
-    "mode": "Work from home",
-    "pct": 25.7
-  },
-  {
-    "area": "Australia",
-    "mode": "Car travel",
-    "pct": 57.8
-  },
-  {
-    "area": "Australia",
-    "mode": "Public transport",
-    "pct": 4.6
-  },
-  {
-    "area": "Australia",
-    "mode": "Work from home",
-    "pct": 21
-  }
+  { "area": "Melbourne City", "mode": "Drove",            "pct": 15.7 },
+  { "area": "Melbourne City", "mode": "Public transport", "pct": 16.5 },
+  { "area": "Melbourne City", "mode": "Worked from home", "pct": 38.6 },
+
+  { "area": "Monash",         "mode": "Drove",            "pct": 47.5 },
+  { "area": "Monash",         "mode": "Public transport", "pct": 6.1  },
+  { "area": "Monash",         "mode": "Worked from home", "pct": 31.6 },
+
+  { "area": "Wyndham",        "mode": "Drove",            "pct": 55.1 },
+  { "area": "Wyndham",        "mode": "Public transport", "pct": 5.9  },
+  { "area": "Wyndham",        "mode": "Worked from home", "pct": 25.3 },
+
+  { "area": "Ballarat",       "mode": "Drove",            "pct": 66.4 },
+  { "area": "Ballarat",       "mode": "Public transport", "pct": 1.2  },
+  { "area": "Ballarat",       "mode": "Worked from home", "pct": 15.5 },
+
+  { "area": "Victoria",       "mode": "Drove",            "pct": 50.3 },
+  { "area": "Victoria",       "mode": "Public transport", "pct": 4.3  },
+  { "area": "Victoria",       "mode": "Worked from home", "pct": 25.7 },
+
+  { "area": "Australia",      "mode": "Drove",            "pct": 53.1 },
+  { "area": "Australia",      "mode": "Public transport", "pct": 4.7  },
+  { "area": "Australia",      "mode": "Worked from home", "pct": 21.0 }
 ]

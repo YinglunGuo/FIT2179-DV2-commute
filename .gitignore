@@ -1,0 +1,12 @@
+# Vega-Lite render-test artefacts (regenerated locally by /tmp/vlcheck/render-png.js)
+preview/
+
+# Editor / OS noise
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (in case anyone npm-installs render tooling here)
+node_modules/
