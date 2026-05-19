@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Grid cartogram of 19 Victorian LGAs. Each LGA occupies an equal-area square placed at a schematic geographic position — Inner city in the centre, Regional at the corners — so dense Melbourne LGAs are no longer hidden by overlap. Colour encodes PT use (%). Each cell prints LGA short name + value.",
+  "config": {
+    "background": null,
+    "font": "Inter",
+    "axis": { "gridColor": "#e7e2d8", "domainColor": "#bdb6a9", "tickColor": "#bdb6a9", "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12, "titleFontWeight": 600 },
+    "legend": { "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12 },
+    "view": { "stroke": null }
+  },
+  "width": "container",
+  "height": 380,
+  "padding": 8,
+  "data": { "url": "data/lga_grid.json" },
+  "layer": [
+    {
+      "mark": { "type": "rect", "tooltip": true, "stroke": "#fbfaf6", "strokeWidth": 3, "cornerRadius": 4 },
+      "encoding": {
+        "x": { "field": "col", "type": "ordinal", "axis": null, "scale": { "domain": [0, 1, 2, 3, 4, 5] } },
+        "y": { "field": "row", "type": "ordinal", "axis": null, "scale": { "domain": [0, 1, 2, 3, 4] } },
+        "color": {
+          "field": "ptPct",
+          "type": "quantitative",
+          "scale": { "scheme": "blues", "domainMin": 0, "domainMax": 17 },
+          "legend": { "title": "% using public transport", "orient": "bottom", "gradientLength": 240 }
+        },
+        "tooltip": [
+          { "field": "name", "title": "LGA" },
+          { "field": "zone", "title": "Zone" },
+          { "field": "ptPct", "title": "PT %", "format": ".1f" },
+          { "field": "carPct", "title": "Drove %", "format": ".1f" },
+          { "field": "wfhPct", "title": "WFH %", "format": ".1f" }
+        ]
+      }
+    },
+    {
+      "mark": { "type": "text", "fontSize": 11, "fontWeight": 700, "align": "center", "baseline": "bottom", "dy": -6 },
+      "encoding": {
+        "x": { "field": "col", "type": "ordinal", "scale": { "domain": [0, 1, 2, 3, 4, 5] } },
+        "y": { "field": "row", "type": "ordinal", "scale": { "domain": [0, 1, 2, 3, 4] } },
+        "text": { "field": "short" },
+        "color": {
+          "condition": { "test": "datum.ptPct > 9", "value": "#fbfaf6" },
+          "value": "#172026"
+        }
+      }
+    },
+    {
+      "mark": { "type": "text", "fontSize": 13, "fontWeight": 800, "align": "center", "baseline": "top", "dy": 4 },
+      "encoding": {
+        "x": { "field": "col", "type": "ordinal", "scale": { "domain": [0, 1, 2, 3, 4, 5] } },
+        "y": { "field": "row", "type": "ordinal", "scale": { "domain": [0, 1, 2, 3, 4] } },
+        "text": { "field": "ptPct", "format": ".1f" },
+        "color": {
+          "condition": { "test": "datum.ptPct > 9", "value": "#fbfaf6" },
+          "value": "#0f1e34"
+        }
+      }
+    },
+    {
+      "mark": { "type": "text", "fontSize": 9, "fontStyle": "italic", "align": "center", "baseline": "top", "dy": 26 },
+      "encoding": {
+        "x": { "field": "col", "type": "ordinal", "scale": { "domain": [0, 1, 2, 3, 4, 5] } },
+        "y": { "field": "row", "type": "ordinal", "scale": { "domain": [0, 1, 2, 3, 4] } },
+        "text": { "field": "zone" },
+        "color": {
+          "condition": { "test": "datum.ptPct > 9", "value": "#dde6ee" },
+          "value": "#7a716b"
+        }
+      }
+    },
+    {
+      "data": { "values": [
+        { "col": 1.5, "row": -0.6, "label": "↑ NORTH (regional + outer-north suburbs)" },
+        { "col": 1.5, "row": 4.6, "label": "↓ SOUTH (bayside + peninsula)" },
+        { "col": -0.4, "row": 1.5, "label": "← WEST (regional)" },
+        { "col": 5.4, "row": 2.5, "label": "EAST (middle/outer) →" }
+      ] },
+      "mark": { "type": "text", "fontSize": 10, "fontWeight": 600, "color": "#5e6a71", "align": "center" },
+      "encoding": {
+        "x": { "field": "col", "type": "ordinal", "scale": { "domain": [-1, 0, 1, 2, 3, 4, 5, 6] } },
+        "y": { "field": "row", "type": "ordinal", "scale": { "domain": [-1, 0, 1, 2, 3, 4, 5] } },
+        "text": { "field": "label" }
+      }
+    }
+  ]
+}

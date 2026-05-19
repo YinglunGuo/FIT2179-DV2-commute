@@ -41,7 +41,7 @@
           <div><span>Why</span><p>Commuting shapes time, household cost, congestion, access to jobs and quality of life. The 2021 Census also captured a once-in-a-generation pandemic shock, so the data carries unusual weight for planning.</p></div>
           <div><span>Who</span><p>The audience is the general Australian public — especially Victorian residents, transport-policy-curious students and journalists who understand commuting in everyday terms but not in Census definitions.</p></div>
           <div><span>What</span><p>ABS Census 2011/2016/2021 method-of-travel-to-work tables and the ABS "Australia's Journey to Work" 2022 article, joined with LGA boundary information and 18 selected Victorian LGAs from ABS QuickStats and id.com.au community profiles.</p></div>
-          <div><span>How</span><p>Fifteen Vega-Lite views using donut, heatmap, grouped bar, choropleth-style bubble map, ranked bar, scatter with regression, line, small-multiples, dumbbell, stacked bar and stacked area idioms — chosen to match the task (composition, comparison, distribution, change, correlation, hierarchy).</p></div>
+          <div><span>How</span><p>Fifteen Vega-Lite views using two map idioms (proportional-symbol bubble map + grid cartogram), donut, heatmap, grouped bar, ranked bar, scatter with regression, line, small-multiples, dumbbell, stacked bar and stacked area — chosen to match the task (composition, comparison, distribution, change, correlation, hierarchy).</p></div>
         </div>
       </div>
     </section>
@@ -55,7 +55,7 @@
     <section class="content chapter">
       <p class="section-kicker">Chapter 1 · One state, many commute geographies</p>
       <h2>Where you live in Victoria predicts how you travel to work.</h2>
-      <p class="lead">The first chapter establishes the composition of Victorian travel modes in 2021, then drills into the spatial split between inner Melbourne, the suburban ring and regional Victoria. Hover the bubble map and scatter together — they share a zone selection, so highlighting one zone fades the others on both panels.</p>
+      <p class="lead">The first chapter establishes the composition of Victorian travel modes in 2021, then drills into the spatial split between inner Melbourne, the suburban ring and regional Victoria. The same data is shown through <strong>two complementary map idioms</strong> — a geographically accurate proportional-symbol bubble map (chart 04) and an equal-area schematic grid cartogram (chart 15) — because dense inner-Melbourne LGAs are simply unreadable on a true-scale map of the state.</p>
     </section>
 
     <section class="charts content">
@@ -78,15 +78,21 @@
       </article>
 
       <article class="chart-card wide">
-        <div class="chart-copy"><span class="chart-number">04</span><h3>Linked geography panel · map + scatter</h3><p>A single Vega-Lite spec with two panels sharing one <code>hoverZone</code> param. Hover a zone in the map (or a point in the scatter) and the matching points fade in across both — a worked example of Munzner's "linked views" interaction primitive.</p></div>
-        <div id="04-victoria-pt-bubble-map" class="chart-host tall" aria-label="Linked map and scatter for Victorian PT and car use"></div>
-        <p class="source-note">Map outline: <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026" target="_blank" rel="noopener">ABS ASGS Edition 3</a> simplified outline. Area data: <a href="https://profile.id.com.au/" target="_blank" rel="noopener">profile.id community profiles</a> (ABS-derived). Spec: <a href="specs/04-victoria-pt-bubble-map.json">04-victoria-pt-bubble-map.json</a></p>
+        <div class="chart-copy"><span class="chart-number">04</span><h3>Three-panel geography view — Victoria + Melbourne inset + scatter</h3><p>One Vega-Lite spec, three coordinated panels. Top-left is the full Victorian state with a 100-point coastline; bottom-left is a Greater Melbourne inset that finally untangles the inner-city cluster the wide view hides. The right panel reuses the same zone palette as a car-vs-PT scatter, showing the inverse relationship at a glance.</p></div>
+        <div id="04-victoria-pt-bubble-map" class="chart-host tall" aria-label="Three-panel Victorian geography view"></div>
+        <p class="source-note">Map outline: hand-built 100-point simplification of the <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026" target="_blank" rel="noopener">ABS ASGS Edition 3</a> Victoria boundary (state code 2). Area data: <a href="https://profile.id.com.au/" target="_blank" rel="noopener">profile.id community profiles</a> (ABS-derived). Spec: <a href="specs/04-victoria-pt-bubble-map.json">04-victoria-pt-bubble-map.json</a></p>
       </article>
 
-      <article class="chart-card">
-        <div class="chart-copy"><span class="chart-number">05</span><h3>Public transport ranked across Victoria</h3><p>A descending ranked bar reveals the steep gradient from Melbourne City's 16.5% to Greater Shepparton's 0.4%. The dashed reference line marks the Victorian state average of 4.3%.</p></div>
+      <article class="chart-card wide">
+        <div class="chart-copy"><span class="chart-number">05</span><h3>Public transport ranked across Victoria</h3><p>A descending ranked bar reveals the steep gradient from Melbourne City's 16.5% to Greater Shepparton's 0.4%. The dashed rule marks the Victorian state average of 4.3% — visually splitting LGAs above and below the line. Inner-city and inner-suburb LGAs cluster above; everything from Whitehorse outward sits at or below.</p></div>
         <div id="05-pt-ranking" class="chart-host tall" aria-label="Public transport use ranked"></div>
-        <p class="source-note">Source: <a href="https://profile.id.com.au/" target="_blank" rel="noopener">profile.id Method of travel to work</a> (each LGA page, e.g. <a href="https://profile.id.com.au/wyndham/travel-to-work" target="_blank" rel="noopener">Wyndham</a>). State average: <a href="https://www.abs.gov.au/articles/australias-journey-work" target="_blank" rel="noopener">ABS Australia's Journey to Work</a>. Spec: <a href="specs/05-pt-ranking.json">05-pt-ranking.json</a></p>
+        <p class="source-note">Source: <a href="https://profile.id.com.au/" target="_blank" rel="noopener">profile.id Method of travel to work</a> (each LGA page, e.g. <a href="https://profile.id.com.au/wyndham/travel-to-work" target="_blank" rel="noopener">Wyndham</a>, <a href="https://profile.id.com.au/melbourne/travel-to-work" target="_blank" rel="noopener">Melbourne</a>, <a href="https://profile.id.com.au/ballarat/travel-to-work" target="_blank" rel="noopener">Ballarat</a>). State average: <a href="https://www.abs.gov.au/articles/australias-journey-work" target="_blank" rel="noopener">ABS Australia's Journey to Work</a>. Spec: <a href="specs/05-pt-ranking.json">05-pt-ranking.json</a></p>
+      </article>
+
+      <article class="chart-card wide">
+        <div class="chart-copy"><span class="chart-number">15</span><h3>Grid cartogram · a second map idiom for the same data</h3><p>A schematic tile map of all 19 Victorian LGAs. Each LGA gets an equal-area square placed at a roughly geographic position (Inner city in the centre, Regional at the edges) — so dense inner-Melbourne LGAs are no longer hidden under each other the way they are on the bubble map. Colour encodes PT share. The two map idioms together show the same data through two complementary cartographic techniques — geographic accuracy (chart 04) and equal-area legibility (chart 15).</p></div>
+        <div id="15-lga-grid-cartogram" class="chart-host tall" aria-label="Grid cartogram of Victorian LGAs by PT share"></div>
+        <p class="source-note">Tile layout: hand-designed schematic grid based on ABS <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026" target="_blank" rel="noopener">ASGS Edition 3</a> LGA geography. Data: same as charts 04 and 05 — <a href="https://profile.id.com.au/" target="_blank" rel="noopener">profile.id community profiles</a> (ABS-derived). Spec: <a href="specs/15-lga-grid-cartogram.json">15-lga-grid-cartogram.json</a></p>
       </article>
     </section>
 
@@ -187,7 +193,7 @@
   </footer>
 
   <script>
-    const charts = ["01-victoria-modes-donut","02-area-mode-heatmap","03-selected-area-bars","04-victoria-pt-bubble-map","05-pt-ranking","06-car-vs-pt-scatter","07-victoria-wfh-trend","08-wfh-by-state","09-national-mode-trend","10-car-city-dumbbell","11-pt-modes-collapse","12-national-2021-modes","13-vehicle-ownership-stack","14-active-transport-area"];
+    const charts = ["01-victoria-modes-donut","02-area-mode-heatmap","03-selected-area-bars","04-victoria-pt-bubble-map","05-pt-ranking","15-lga-grid-cartogram","06-car-vs-pt-scatter","07-victoria-wfh-trend","08-wfh-by-state","09-national-mode-trend","10-car-city-dumbbell","11-pt-modes-collapse","12-national-2021-modes","13-vehicle-ownership-stack","14-active-transport-area"];
     const embedOptions = { actions: false, renderer: 'svg' };
     async function embedCharts() {
       for (const id of charts) {

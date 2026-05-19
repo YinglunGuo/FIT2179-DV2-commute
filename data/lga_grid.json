@@ -1,0 +1,21 @@
+[
+  { "name": "Ballarat",             "short": "Ballarat",    "col": 0, "row": 0, "zone": "Regional",     "ptPct": 1.2,  "carPct": 66.4, "wfhPct": 15.5 },
+  { "name": "Greater Bendigo",      "short": "Bendigo",     "col": 1, "row": 0, "zone": "Regional",     "ptPct": 0.9,  "carPct": 67.1, "wfhPct": 14.3 },
+  { "name": "Greater Shepparton",   "short": "Shepparton",  "col": 4, "row": 0, "zone": "Regional",     "ptPct": 0.4,  "carPct": 68.2, "wfhPct": 12.7 },
+  { "name": "Greater Geelong",      "short": "Geelong",     "col": 0, "row": 1, "zone": "Regional",     "ptPct": 1.5,  "carPct": 68.6, "wfhPct": 15.4 },
+  { "name": "Melton",               "short": "Melton",      "col": 1, "row": 1, "zone": "Outer suburb", "ptPct": 3.7,  "carPct": 63.3, "wfhPct": 22.0 },
+  { "name": "Hume",                 "short": "Hume",        "col": 2, "row": 1, "zone": "Outer suburb", "ptPct": 4.3,  "carPct": 63.8, "wfhPct": 17.8 },
+  { "name": "Whittlesea",           "short": "Whittlesea",  "col": 3, "row": 1, "zone": "Outer suburb", "ptPct": 4.0,  "carPct": 61.5, "wfhPct": 22.0 },
+  { "name": "Wyndham",              "short": "Wyndham",     "col": 1, "row": 2, "zone": "Outer suburb", "ptPct": 5.9,  "carPct": 55.1, "wfhPct": 25.3 },
+  { "name": "Melbourne City",       "short": "Melb City",   "col": 2, "row": 2, "zone": "Inner city",   "ptPct": 16.5, "carPct": 15.7, "wfhPct": 38.6 },
+  { "name": "Yarra",                "short": "Yarra",       "col": 3, "row": 2, "zone": "Inner suburb", "ptPct": 8.1,  "carPct": 26.0, "wfhPct": 46.9 },
+  { "name": "Darebin",              "short": "Darebin",     "col": 4, "row": 2, "zone": "Inner suburb", "ptPct": 7.1,  "carPct": 38.5, "wfhPct": 36.0 },
+  { "name": "Knox",                 "short": "Knox",        "col": 5, "row": 2, "zone": "Outer suburb", "ptPct": 2.5,  "carPct": 59.5, "wfhPct": 25.6 },
+  { "name": "Port Phillip",         "short": "Port Phillip","col": 2, "row": 3, "zone": "Inner city",   "ptPct": 7.8,  "carPct": 28.6, "wfhPct": 43.9 },
+  { "name": "Stonnington",          "short": "Stonnington", "col": 3, "row": 3, "zone": "Inner suburb", "ptPct": 8.2,  "carPct": 30.0, "wfhPct": 44.0 },
+  { "name": "Boroondara",           "short": "Boroondara",  "col": 4, "row": 3, "zone": "Inner suburb", "ptPct": 5.3,  "carPct": 36.5, "wfhPct": 39.6 },
+  { "name": "Whitehorse",           "short": "Whitehorse",  "col": 5, "row": 3, "zone": "Middle suburb","ptPct": 5.0,  "carPct": 44.8, "wfhPct": 29.9 },
+  { "name": "Frankston",            "short": "Frankston",   "col": 2, "row": 4, "zone": "Outer suburb", "ptPct": 3.0,  "carPct": 58.7, "wfhPct": 24.7 },
+  { "name": "Mornington Peninsula", "short": "Morn. Pen.",  "col": 3, "row": 4, "zone": "Peri-urban",   "ptPct": 1.0,  "carPct": 57.7, "wfhPct": 22.6 },
+  { "name": "Monash",               "short": "Monash",      "col": 4, "row": 4, "zone": "Middle suburb","ptPct": 6.1,  "carPct": 47.5, "wfhPct": 31.6 }
+]
