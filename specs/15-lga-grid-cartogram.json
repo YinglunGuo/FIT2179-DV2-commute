@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Grid cartogram of 19 Victorian LGAs. Each LGA occupies an equal-area square placed at a schematic geographic position — Inner city in the centre, Regional at the corners — so dense Melbourne LGAs are no longer hidden by overlap. Colour encodes PT use (%). Each cell prints LGA short name + value.",
+  "description": "Grid cartogram of 19 Victorian LGAs. Each LGA occupies an equal-area square placed at a schematic geographic position — Inner city in the centre, Regional at the edges. Colour encodes PT use (%). Each cell prints LGA name and value; this idiom guarantees no overlap, unlike the geographic bubble map.",
   "config": {
     "background": null,
     "font": "Inter",
@@ -9,20 +9,20 @@
     "view": { "stroke": null }
   },
   "width": "container",
-  "height": 380,
-  "padding": 8,
+  "height": 460,
+  "padding": { "top": 30, "right": 24, "bottom": 60, "left": 24 },
   "data": { "url": "data/lga_grid.json" },
   "layer": [
     {
-      "mark": { "type": "rect", "tooltip": true, "stroke": "#fbfaf6", "strokeWidth": 3, "cornerRadius": 4 },
+      "mark": { "type": "rect", "tooltip": true, "stroke": "#fbfaf6", "strokeWidth": 4, "cornerRadius": 6 },
       "encoding": {
-        "x": { "field": "col", "type": "ordinal", "axis": null, "scale": { "domain": [0, 1, 2, 3, 4, 5] } },
-        "y": { "field": "row", "type": "ordinal", "axis": null, "scale": { "domain": [0, 1, 2, 3, 4] } },
+        "x": { "field": "col", "type": "ordinal", "axis": null, "scale": { "domain": [0, 1, 2, 3, 4, 5], "paddingInner": 0.06, "paddingOuter": 0.04 } },
+        "y": { "field": "row", "type": "ordinal", "axis": null, "scale": { "domain": [0, 1, 2, 3, 4], "paddingInner": 0.06, "paddingOuter": 0.04 } },
         "color": {
           "field": "ptPct",
           "type": "quantitative",
           "scale": { "scheme": "blues", "domainMin": 0, "domainMax": 17 },
-          "legend": { "title": "% using public transport", "orient": "bottom", "gradientLength": 240 }
+          "legend": { "title": "% using public transport (Census 2021)", "orient": "bottom", "gradientLength": 320, "titleFontSize": 12, "labelFontSize": 11 }
         },
         "tooltip": [
           { "field": "name", "title": "LGA" },
@@ -34,7 +34,7 @@
       }
     },
     {
-      "mark": { "type": "text", "fontSize": 11, "fontWeight": 700, "align": "center", "baseline": "bottom", "dy": -6 },
+      "mark": { "type": "text", "fontSize": 12, "fontWeight": 700, "align": "center", "baseline": "bottom", "dy": -6 },
       "encoding": {
         "x": { "field": "col", "type": "ordinal", "scale": { "domain": [0, 1, 2, 3, 4, 5] } },
         "y": { "field": "row", "type": "ordinal", "scale": { "domain": [0, 1, 2, 3, 4] } },
@@ -46,7 +46,7 @@
       }
     },
     {
-      "mark": { "type": "text", "fontSize": 13, "fontWeight": 800, "align": "center", "baseline": "top", "dy": 4 },
+      "mark": { "type": "text", "fontSize": 16, "fontWeight": 800, "align": "center", "baseline": "middle" },
       "encoding": {
         "x": { "field": "col", "type": "ordinal", "scale": { "domain": [0, 1, 2, 3, 4, 5] } },
         "y": { "field": "row", "type": "ordinal", "scale": { "domain": [0, 1, 2, 3, 4] } },
@@ -58,7 +58,7 @@
       }
     },
     {
-      "mark": { "type": "text", "fontSize": 9, "fontStyle": "italic", "align": "center", "baseline": "top", "dy": 26 },
+      "mark": { "type": "text", "fontSize": 9, "fontStyle": "italic", "align": "center", "baseline": "top", "dy": 22 },
       "encoding": {
         "x": { "field": "col", "type": "ordinal", "scale": { "domain": [0, 1, 2, 3, 4, 5] } },
         "y": { "field": "row", "type": "ordinal", "scale": { "domain": [0, 1, 2, 3, 4] } },
@@ -67,20 +67,6 @@
           "condition": { "test": "datum.ptPct > 9", "value": "#dde6ee" },
           "value": "#7a716b"
         }
-      }
-    },
-    {
-      "data": { "values": [
-        { "col": 1.5, "row": -0.6, "label": "↑ NORTH (regional + outer-north suburbs)" },
-        { "col": 1.5, "row": 4.6, "label": "↓ SOUTH (bayside + peninsula)" },
-        { "col": -0.4, "row": 1.5, "label": "← WEST (regional)" },
-        { "col": 5.4, "row": 2.5, "label": "EAST (middle/outer) →" }
-      ] },
-      "mark": { "type": "text", "fontSize": 10, "fontWeight": 600, "color": "#5e6a71", "align": "center" },
-      "encoding": {
-        "x": { "field": "col", "type": "ordinal", "scale": { "domain": [-1, 0, 1, 2, 3, 4, 5, 6] } },
-        "y": { "field": "row", "type": "ordinal", "scale": { "domain": [-1, 0, 1, 2, 3, 4, 5] } },
-        "text": { "field": "label" }
       }
     }
   ]

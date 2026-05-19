@@ -35,17 +35,6 @@
   </header>
 
   <main>
-    <section class="brief section-band">
-      <div class="content narrow">
-        <div class="brief-grid">
-          <div><span>Why</span><p>Commuting shapes time, household cost, congestion, access to jobs and quality of life. The 2021 Census also captured a once-in-a-generation pandemic shock, so the data carries unusual weight for planning.</p></div>
-          <div><span>Who</span><p>The audience is the general Australian public — especially Victorian residents, transport-policy-curious students and journalists who understand commuting in everyday terms but not in Census definitions.</p></div>
-          <div><span>What</span><p>ABS Census 2011/2016/2021 method-of-travel-to-work tables and the ABS "Australia's Journey to Work" 2022 article, joined with LGA boundary information and 18 selected Victorian LGAs from ABS QuickStats and id.com.au community profiles.</p></div>
-          <div><span>How</span><p>Fifteen Vega-Lite views using two map idioms (proportional-symbol bubble map + grid cartogram), donut, heatmap, grouped bar, ranked bar, scatter with regression, line, small-multiples, dumbbell, stacked bar and stacked area — chosen to match the task (composition, comparison, distribution, change, correlation, hierarchy).</p></div>
-        </div>
-      </div>
-    </section>
-
     <section class="content story-block">
       <p class="section-kicker">Storyline</p>
       <h2>Three forces explain Victoria's 2021 commute.</h2>
@@ -80,7 +69,7 @@
       <article class="chart-card wide">
         <div class="chart-copy"><span class="chart-number">04</span><h3>Three-panel geography view — Victoria + Melbourne inset + scatter</h3><p>One Vega-Lite spec, three coordinated panels. Top-left is the full Victorian state with a 100-point coastline; bottom-left is a Greater Melbourne inset that finally untangles the inner-city cluster the wide view hides. The right panel reuses the same zone palette as a car-vs-PT scatter, showing the inverse relationship at a glance.</p></div>
         <div id="04-victoria-pt-bubble-map" class="chart-host tall" aria-label="Three-panel Victorian geography view"></div>
-        <p class="source-note">Map outline: hand-built 100-point simplification of the <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026" target="_blank" rel="noopener">ABS ASGS Edition 3</a> Victoria boundary (state code 2). Area data: <a href="https://profile.id.com.au/" target="_blank" rel="noopener">profile.id community profiles</a> (ABS-derived). Spec: <a href="specs/04-victoria-pt-bubble-map.json">04-victoria-pt-bubble-map.json</a></p>
+        <p class="source-note">Map outline: 104-point Victoria coastline extracted from the Natural Earth 1:50m country boundary (<a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a>, public-domain), aligned to the <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026" target="_blank" rel="noopener">ABS ASGS Edition 3</a> Victoria boundary. Area data: <a href="https://profile.id.com.au/" target="_blank" rel="noopener">profile.id community profiles</a> (ABS-derived). Spec: <a href="specs/04-victoria-pt-bubble-map.json">04-victoria-pt-bubble-map.json</a></p>
       </article>
 
       <article class="chart-card wide">
