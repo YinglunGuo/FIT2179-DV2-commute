@@ -13,9 +13,9 @@
       "vconcat": [
         {
           "title": { "text": "Victoria · all 19 LGAs", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
-          "width": 400,
-          "height": 260,
-          "projection": { "type": "mercator", "center": [144.7, -36.7], "scale": 2600 },
+          "width": 440,
+          "height": 280,
+          "projection": { "type": "mercator", "center": [145.7, -36.6], "scale": 2400 },
           "layer": [
             {
               "data": { "url": "data/victoria_outline.geojson", "format": { "type": "json", "property": "features" } },
@@ -70,10 +70,10 @@
           ]
         },
         {
-          "title": { "text": "Greater Melbourne · inset zoom (Port Phillip Bay)", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
-          "width": 400,
+          "title": { "text": "Greater Melbourne · inset zoom", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
+          "width": 440,
           "height": 380,
-          "projection": { "type": "mercator", "center": [145.05, -37.92], "scale": 18000 },
+          "projection": { "type": "mercator", "center": [145.05, -37.86], "scale": 22000 },
           "layer": [
             {
               "data": { "url": "data/victoria_outline.geojson", "format": { "type": "json", "property": "features" } },
@@ -180,5 +180,5 @@
       ]
     }
   ],
-  "resolve": { "scale": { "color": "independent" } }
+  "resolve": { "scale": { "color": "independent", "size": "independent" } }
 }
