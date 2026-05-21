@@ -26,17 +26,17 @@
               "mark": { "type": "geoshape", "stroke": "#fbfaf6", "strokeWidth": 0.9, "tooltip": true },
               "encoding": {
                 "color": {
-                  "field": "properties.ptPct",
+                  "field": "ptPct",
                   "type": "quantitative",
                   "scale": { "scheme": "blues", "domainMin": 0, "domainMax": 17 },
                   "legend": { "title": "PT use (%)", "orient": "bottom-right", "gradientLength": 140, "titleFontSize": 11, "labelFontSize": 10 }
                 },
                 "tooltip": [
-                  { "field": "properties.name", "title": "Area" },
-                  { "field": "properties.zone", "title": "Zone" },
-                  { "field": "properties.ptPct", "title": "PT %", "format": ".1f" },
-                  { "field": "properties.carPct", "title": "Drove %", "format": ".1f" },
-                  { "field": "properties.wfhPct", "title": "WFH %", "format": ".1f" }
+                  { "field": "name", "title": "Area" },
+                  { "field": "zone", "title": "Zone" },
+                  { "field": "ptPct", "title": "PT %", "format": ".1f" },
+                  { "field": "carPct", "title": "Drove %", "format": ".1f" },
+                  { "field": "wfhPct", "title": "WFH %", "format": ".1f" }
                 ]
               }
             },
@@ -67,17 +67,17 @@
               "mark": { "type": "geoshape", "stroke": "#fbfaf6", "strokeWidth": 1.5, "tooltip": true },
               "encoding": {
                 "color": {
-                  "field": "properties.ptPct",
+                  "field": "ptPct",
                   "type": "quantitative",
                   "scale": { "scheme": "blues", "domainMin": 0, "domainMax": 17 },
                   "legend": null
                 },
                 "tooltip": [
-                  { "field": "properties.name", "title": "Area" },
-                  { "field": "properties.zone", "title": "Zone" },
-                  { "field": "properties.ptPct", "title": "PT %", "format": ".1f" },
-                  { "field": "properties.carPct", "title": "Drove %", "format": ".1f" },
-                  { "field": "properties.wfhPct", "title": "WFH %", "format": ".1f" }
+                  { "field": "name", "title": "Area" },
+                  { "field": "zone", "title": "Zone" },
+                  { "field": "ptPct", "title": "PT %", "format": ".1f" },
+                  { "field": "carPct", "title": "Drove %", "format": ".1f" },
+                  { "field": "wfhPct", "title": "WFH %", "format": ".1f" }
                 ]
               }
             },
@@ -86,9 +86,9 @@
               "transform": [{ "filter": "datum.properties.zone !== 'Regional'" }],
               "mark": { "type": "text", "fontSize": 10, "fontWeight": 700 },
               "encoding": {
-                "longitude": { "field": "properties.lon", "type": "quantitative" },
-                "latitude": { "field": "properties.lat", "type": "quantitative" },
-                "text": { "field": "properties.name" },
+                "longitude": { "field": "lon", "type": "quantitative" },
+                "latitude": { "field": "lat", "type": "quantitative" },
+                "text": { "field": "name" },
                 "color": {
                   "condition": { "test": "datum.properties.ptPct > 9", "value": "#fbfaf6" },
                   "value": "#172026"
@@ -100,9 +100,9 @@
               "transform": [{ "filter": "datum.properties.zone !== 'Regional'" }],
               "mark": { "type": "text", "fontSize": 10, "fontWeight": 800, "dy": 12 },
               "encoding": {
-                "longitude": { "field": "properties.lon", "type": "quantitative" },
-                "latitude": { "field": "properties.lat", "type": "quantitative" },
-                "text": { "field": "properties.ptPct", "format": ".1f" },
+                "longitude": { "field": "lon", "type": "quantitative" },
+                "latitude": { "field": "lat", "type": "quantitative" },
+                "text": { "field": "ptPct", "format": ".1f" },
                 "color": {
                   "condition": { "test": "datum.properties.ptPct > 9", "value": "#fbfaf6" },
                   "value": "#0f1e34"
