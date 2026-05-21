@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Three-panel geography view of Victoria 2021. (1) Victoria-wide proportional-symbol map with 100-point Natural Earth coastline. (2) Greater Melbourne inset — same source map cropped via projection so the 14 inner-Melbourne LGAs become legible. (3) Car-vs-PT scatter sharing the zone palette and showing the inverse relationship at a glance.",
+  "description": "Three-panel geography view of Victoria 2021, redesigned as a true choropleth. Each of the 19 selected LGAs gets a Voronoi region clipped to Victoria's coastline and coloured by PT use. (1) Victoria-wide choropleth (2) Greater Melbourne inset (3) Drove-vs-PT scatter with the same zone palette.",
   "config": {
     "background": null,
     "font": "Inter",
@@ -12,35 +12,31 @@
     {
       "vconcat": [
         {
-          "title": { "text": "Victoria · all 19 LGAs", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
+          "title": { "text": "Victoria — 19 selected LGAs · choropleth by PT use", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
           "width": 440,
-          "height": 280,
-          "projection": { "type": "mercator", "center": [145.7, -36.6], "scale": 2400 },
+          "height": 300,
+          "projection": { "type": "mercator", "center": [145.55, -36.55], "scale": 2350 },
           "layer": [
             {
               "data": { "url": "data/victoria_outline.geojson", "format": { "type": "json", "property": "features" } },
-              "mark": { "type": "geoshape", "fill": "#eee6da", "stroke": "#9f9587", "strokeWidth": 1 }
+              "mark": { "type": "geoshape", "fill": "#f3ece0", "stroke": "#7d7164", "strokeWidth": 1.1 }
             },
             {
-              "data": { "url": "data/victoria_areas.json" },
-              "mark": { "type": "circle", "stroke": "#fffdf8", "strokeWidth": 0.9, "tooltip": true },
+              "data": { "url": "data/lga_voronoi.geojson", "format": { "type": "json", "property": "features" } },
+              "mark": { "type": "geoshape", "stroke": "#fbfaf6", "strokeWidth": 0.9, "tooltip": true },
               "encoding": {
-                "longitude": { "field": "lon", "type": "quantitative" },
-                "latitude": { "field": "lat", "type": "quantitative" },
-                "size": { "field": "ptPct", "type": "quantitative", "scale": { "range": [40, 700] }, "legend": null },
                 "color": {
-                  "field": "zone", "type": "nominal",
-                  "scale": {
-                    "domain": ["Inner city", "Inner suburb", "Middle suburb", "Outer suburb", "Peri-urban", "Regional"],
-                    "range": ["#063b63", "#1f6fb2", "#4a9ad4", "#80bfe6", "#f0aa4f", "#9e7c5a"]
-                  },
-                  "legend": null
+                  "field": "properties.ptPct",
+                  "type": "quantitative",
+                  "scale": { "scheme": "blues", "domainMin": 0, "domainMax": 17 },
+                  "legend": { "title": "PT use (%)", "orient": "bottom-right", "gradientLength": 140, "titleFontSize": 11, "labelFontSize": 10 }
                 },
-                "opacity": { "value": 0.92 },
                 "tooltip": [
-                  { "field": "name", "title": "Area" },
-                  { "field": "zone", "title": "Zone" },
-                  { "field": "ptPct", "title": "PT use %", "format": ".1f" }
+                  { "field": "properties.name", "title": "Area" },
+                  { "field": "properties.zone", "title": "Zone" },
+                  { "field": "properties.ptPct", "title": "PT %", "format": ".1f" },
+                  { "field": "properties.carPct", "title": "Drove %", "format": ".1f" },
+                  { "field": "properties.wfhPct", "title": "WFH %", "format": ".1f" }
                 ]
               }
             },
@@ -51,16 +47,7 @@
                 { "lon": 145.40, "lat": -36.38, "label": "Shepparton" },
                 { "lon": 144.35, "lat": -38.15, "label": "Geelong" }
               ] },
-              "mark": { "type": "text", "dx": 10, "dy": -7, "fontSize": 10, "fontWeight": 600, "color": "#172026", "align": "left" },
-              "encoding": {
-                "longitude": { "field": "lon", "type": "quantitative" },
-                "latitude": { "field": "lat", "type": "quantitative" },
-                "text": { "field": "label" }
-              }
-            },
-            {
-              "data": { "values": [ { "lon": 145.0, "lat": -37.95, "label": "↓ Greater Melbourne (zoomed below)" } ] },
-              "mark": { "type": "text", "fontSize": 10, "fontWeight": 700, "color": "#1c3a5e", "align": "center", "fontStyle": "italic" },
+              "mark": { "type": "text", "fontSize": 10, "fontWeight": 700, "color": "#fbfaf6" },
               "encoding": {
                 "longitude": { "field": "lon", "type": "quantitative" },
                 "latitude": { "field": "lat", "type": "quantitative" },
@@ -70,49 +57,56 @@
           ]
         },
         {
-          "title": { "text": "Greater Melbourne · inset zoom", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
+          "title": { "text": "Greater Melbourne — inner-suburb detail", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
           "width": 440,
-          "height": 380,
-          "projection": { "type": "mercator", "center": [145.05, -37.86], "scale": 22000 },
+          "height": 360,
+          "projection": { "type": "mercator", "center": [145.10, -37.86], "scale": 22000 },
           "layer": [
             {
-              "data": { "url": "data/victoria_outline.geojson", "format": { "type": "json", "property": "features" } },
-              "mark": { "type": "geoshape", "fill": "#eee6da", "stroke": "#9f9587", "strokeWidth": 1.2 }
-            },
-            {
-              "data": { "url": "data/victoria_areas.json" },
-              "transform": [{ "filter": "datum.zone !== 'Regional'" }],
-              "mark": { "type": "circle", "stroke": "#fffdf8", "strokeWidth": 1.5, "tooltip": true },
+              "data": { "url": "data/lga_voronoi.geojson", "format": { "type": "json", "property": "features" } },
+              "mark": { "type": "geoshape", "stroke": "#fbfaf6", "strokeWidth": 1.5, "tooltip": true },
               "encoding": {
-                "longitude": { "field": "lon", "type": "quantitative" },
-                "latitude": { "field": "lat", "type": "quantitative" },
-                "size": { "field": "ptPct", "type": "quantitative", "scale": { "range": [180, 2400] }, "legend": null },
                 "color": {
-                  "field": "zone", "type": "nominal",
-                  "scale": {
-                    "domain": ["Inner city", "Inner suburb", "Middle suburb", "Outer suburb", "Peri-urban", "Regional"],
-                    "range": ["#063b63", "#1f6fb2", "#4a9ad4", "#80bfe6", "#f0aa4f", "#9e7c5a"]
-                  },
+                  "field": "properties.ptPct",
+                  "type": "quantitative",
+                  "scale": { "scheme": "blues", "domainMin": 0, "domainMax": 17 },
                   "legend": null
                 },
-                "opacity": { "value": 0.9 },
                 "tooltip": [
-                  { "field": "name", "title": "Area" },
-                  { "field": "zone", "title": "Zone" },
-                  { "field": "ptPct", "title": "PT use %", "format": ".1f" },
-                  { "field": "carPct", "title": "Drove %", "format": ".1f" },
-                  { "field": "wfhPct", "title": "WFH %", "format": ".1f" }
+                  { "field": "properties.name", "title": "Area" },
+                  { "field": "properties.zone", "title": "Zone" },
+                  { "field": "properties.ptPct", "title": "PT %", "format": ".1f" },
+                  { "field": "properties.carPct", "title": "Drove %", "format": ".1f" },
+                  { "field": "properties.wfhPct", "title": "WFH %", "format": ".1f" }
                 ]
               }
             },
             {
-              "data": { "url": "data/victoria_areas.json" },
-              "transform": [{ "filter": "datum.zone !== 'Regional' && datum.zone !== 'Peri-urban'" }],
-              "mark": { "type": "text", "dy": -22, "fontSize": 9, "fontWeight": 700, "color": "#172026", "align": "center" },
+              "data": { "url": "data/lga_voronoi.geojson", "format": { "type": "json", "property": "features" } },
+              "transform": [{ "filter": "datum.properties.zone !== 'Regional'" }],
+              "mark": { "type": "text", "fontSize": 10, "fontWeight": 700 },
               "encoding": {
-                "longitude": { "field": "lon", "type": "quantitative" },
-                "latitude": { "field": "lat", "type": "quantitative" },
-                "text": { "field": "name" }
+                "longitude": { "field": "properties.lon", "type": "quantitative" },
+                "latitude": { "field": "properties.lat", "type": "quantitative" },
+                "text": { "field": "properties.name" },
+                "color": {
+                  "condition": { "test": "datum.properties.ptPct > 9", "value": "#fbfaf6" },
+                  "value": "#172026"
+                }
+              }
+            },
+            {
+              "data": { "url": "data/lga_voronoi.geojson", "format": { "type": "json", "property": "features" } },
+              "transform": [{ "filter": "datum.properties.zone !== 'Regional'" }],
+              "mark": { "type": "text", "fontSize": 10, "fontWeight": 800, "dy": 12 },
+              "encoding": {
+                "longitude": { "field": "properties.lon", "type": "quantitative" },
+                "latitude": { "field": "properties.lat", "type": "quantitative" },
+                "text": { "field": "properties.ptPct", "format": ".1f" },
+                "color": {
+                  "condition": { "test": "datum.properties.ptPct > 9", "value": "#fbfaf6" },
+                  "value": "#0f1e34"
+                }
               }
             }
           ]
@@ -120,9 +114,9 @@
       ]
     },
     {
-      "title": { "text": "Drove vs PT — Victorian LGAs", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
+      "title": { "text": "Drove vs PT — 19 selected Victorian LGAs", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
       "width": 380,
-      "height": 660,
+      "height": 700,
       "data": { "url": "data/victoria_areas.json" },
       "layer": [
         {
@@ -144,9 +138,9 @@
                 "domain": ["Inner city", "Inner suburb", "Middle suburb", "Outer suburb", "Peri-urban", "Regional"],
                 "range": ["#063b63", "#1f6fb2", "#4a9ad4", "#80bfe6", "#f0aa4f", "#9e7c5a"]
               },
-              "legend": { "title": "Area type", "orient": "bottom", "columns": 3 }
+              "legend": { "title": "Area type (zone)", "orient": "bottom", "columns": 3 }
             },
-            "opacity": { "value": 0.9 },
+            "opacity": { "value": 0.92 },
             "tooltip": [
               { "field": "name", "title": "Area" },
               { "field": "zone", "title": "Zone" },
