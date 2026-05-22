@@ -5,7 +5,7 @@ A single-page Vega-Lite story on Victorian and Australian journey-to-work patter
 
 ## Structure
 
-- `index.html` — story-structured single page (hero → 4 chapters → 14 charts incl. 1 custom small-multiples and 1 linked-views panel → methodology → footer).
+- `index.html` — story-structured single page (hero → 4 chapters → 15 charts/views incl. 2 map idioms, 1 custom small-multiples panel, and 1 linked geography/scatter panel → methodology → footer).
 - `style.css` — typography (Source Serif 4 display + Inter body), layout, responsive breakpoints.
 - `data/*.json` — cleaned, public ABS-derived data used by the Vega-Lite views.
 - `specs/*.json` — readable Vega-Lite v5 JSON specifications for every chart, as required by the brief.
