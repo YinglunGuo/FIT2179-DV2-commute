@@ -67,7 +67,7 @@
       </article>
 
       <article class="chart-card wide">
-        <div class="chart-copy"><span class="chart-number">04</span><h3>Schematic choropleth map — 19 selected Victorian LGAs</h3><p>Three coordinated panels in one Vega-Lite spec. <strong>Top-left</strong>: the full Victorian state with a 121-point Murray-River-and-coast outline. <strong>Bottom-left</strong>: a Greater Melbourne inset that opens up the inner-suburb cluster. <strong>Right</strong>: a drove-vs-PT scatter that re-uses the same zone palette. <em>How to read this:</em> each filled region is one LGA. The colour ramp (light → dark blue) encodes public-transport share (0–17%). Region outlines are <strong>simplified hand-traced polygons</strong> (9–16 vertices per LGA) sized and positioned to approximate the real ABS LGA shape — they are schematic, not the strict ABS boundary.</p></div>
+        <div class="chart-copy"><span class="chart-number">04</span><h3>Schematic choropleth map — 19 selected Victorian LGAs</h3><p>Three coordinated panels in one Vega-Lite spec, now stacked for readability. <strong>Top</strong>: the full Victorian state with a 121-point Murray-River-and-coast outline. <strong>Middle</strong>: an expanded Greater Melbourne inset that opens up the inner-suburb cluster. <strong>Bottom</strong>: a drove-vs-PT scatter that re-uses the same zone palette. <em>How to read this:</em> each filled region is one LGA. The colour ramp (light → dark blue) encodes public-transport share (0–17%). Region outlines are <strong>simplified hand-traced polygons</strong> (9–16 vertices per LGA) sized and positioned to approximate the real ABS LGA shape — they are schematic, not the strict ABS boundary.</p></div>
         <div id="04-victoria-lga-choropleth" class="chart-host tall" aria-label="Victoria choropleth with Greater Melbourne inset and scatter"></div>
         <p class="source-note">Victoria outline: 121-point polygon — Natural-Earth 1:50m south coast (<a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a>) + hand-traced Murray River and Victoria–NSW border, aligned to the <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026" target="_blank" rel="noopener">ABS ASGS Edition 3</a> Victoria boundary. LGA regions: simplified hand-traced polygons positioned to approximate the real ABS LGA shapes (not exact boundaries). Data: <a href="https://profile.id.com.au/" target="_blank" rel="noopener">profile.id community profiles</a> (ABS-derived). Spec: <a href="specs/04-victoria-lga-choropleth.json">04-victoria-lga-choropleth.json</a></p>
       </article>
@@ -185,13 +185,14 @@
     // Note: display order matches `<article>` order. Some file names retain their original numeric prefix
     // for backward compatibility — the visible chart-number in the page header is what matters for marking.
     const charts = ["01-victoria-modes-donut","02-area-mode-heatmap","03-selected-area-bars","04-victoria-lga-choropleth","05-pt-ranking","15-lga-grid-cartogram","06-car-vs-pt-scatter","07-victoria-wfh-trend","08-wfh-by-state","09-national-mode-trend","10-car-city-dumbbell","11-pt-modes-collapse","12-national-2021-modes","13-vehicle-ownership-stack","14-active-transport-area"];
+    const specVersion = "2026-05-22-04fix";
     const embedOptions = { actions: false, renderer: 'svg' };
     async function embedCharts() {
       for (const id of charts) {
         const host = document.getElementById(id);
         if (!host) continue;
         try {
-          const spec = await fetch('specs/' + id + '.json').then(r => {
+          const spec = await fetch('specs/' + id + '.json?v=' + specVersion).then(r => {
             if (!r.ok) throw new Error(r.status + ' ' + r.statusText);
             return r.json();
           });
