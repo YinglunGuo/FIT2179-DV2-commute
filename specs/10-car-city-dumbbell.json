@@ -1,63 +1,211 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Dumbbell plot of 'drove to work (car as driver)' share for each state's greater capital city vs the rest of the state in 2021. Sorted by gap size. NT inverts the usual pattern.",
-  "autosize": { "type": "fit", "contains": "padding" },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "config": {
     "background": null,
     "font": "Inter",
-    "axis": { "gridColor": "#e7e2d8", "domainColor": "#bdb6a9", "tickColor": "#bdb6a9", "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12, "titleFontWeight": 600 },
-    "legend": { "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12 },
-    "view": { "stroke": null }
+    "axis": {
+      "gridColor": "#e7e2d8",
+      "domainColor": "#bdb6a9",
+      "tickColor": "#bdb6a9",
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12,
+      "titleFontWeight": 600
+    },
+    "legend": {
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
   },
   "width": "container",
   "height": 360,
   "padding": 6,
   "layer": [
     {
-      "data": { "url": "data/car_city_pairs.json" },
-      "mark": { "type": "rule", "color": "#b7aea1", "strokeWidth": 3 },
+      "data": {
+        "url": "data/car_city_pairs.json"
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#b7aea1",
+        "strokeWidth": 3
+      },
       "encoding": {
-        "y": { "field": "state", "type": "nominal", "sort": { "field": "gap", "order": "descending" }, "title": null, "axis": { "labelFontWeight": 700 } },
-        "x": { "field": "city", "type": "quantitative", "title": "Car-as-driver share (%)", "scale": { "domain": [28, 72] } },
-        "x2": { "field": "rest" }
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": {
+            "field": "gap",
+            "order": "descending"
+          },
+          "title": null,
+          "axis": {
+            "labelFontWeight": 700
+          }
+        },
+        "x": {
+          "field": "city",
+          "type": "quantitative",
+          "title": "Car-as-driver share (%)",
+          "scale": {
+            "domain": [
+              28,
+              72
+            ]
+          }
+        },
+        "x2": {
+          "field": "rest"
+        }
       }
     },
     {
-      "data": { "url": "data/car_city.json" },
-      "mark": { "type": "point", "filled": true, "size": 150, "tooltip": true, "stroke": "#fbfaf6", "strokeWidth": 1.5 },
+      "data": {
+        "url": "data/car_city.json"
+      },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 150,
+        "tooltip": true,
+        "stroke": "#fbfaf6",
+        "strokeWidth": 1.5
+      },
       "encoding": {
-        "y": { "field": "state", "type": "nominal", "sort": { "field": "gap", "order": "descending" } },
-        "x": { "field": "pct", "type": "quantitative", "scale": { "domain": [28, 72] } },
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": {
+            "field": "gap",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              28,
+              72
+            ]
+          }
+        },
         "color": {
           "field": "type",
           "type": "nominal",
-          "scale": { "domain": ["Greater capital city", "Rest of state"], "range": ["#1f6fb2", "#c83f32"] },
-          "legend": { "title": "Area", "orient": "bottom" }
+          "scale": {
+            "domain": [
+              "Greater capital city",
+              "Rest of state"
+            ],
+            "range": [
+              "#1f6fb2",
+              "#c83f32"
+            ]
+          },
+          "legend": {
+            "title": "Area",
+            "orient": "bottom"
+          }
         },
         "tooltip": [
-          { "field": "state", "title": "State / territory" },
-          { "field": "type", "title": "Area" },
-          { "field": "pct", "title": "Drove %", "format": ".1f" }
+          {
+            "field": "state",
+            "title": "State / territory"
+          },
+          {
+            "field": "type",
+            "title": "Area"
+          },
+          {
+            "field": "pct",
+            "title": "Drove %",
+            "format": ".1f"
+          }
         ]
       }
     },
     {
-      "data": { "url": "data/car_city_pairs.json" },
-      "transform": [{ "calculate": "((datum.city + datum.rest) / 2)", "as": "mid" }, { "calculate": "(datum.gap > 0 ? '+' : '') + format(datum.gap, '.1f') + ' pp'", "as": "gapLabel" }],
-      "mark": { "type": "text", "dy": -10, "fontSize": 10, "fontWeight": 700, "color": "#172026" },
+      "data": {
+        "url": "data/car_city_pairs.json"
+      },
+      "transform": [
+        {
+          "calculate": "((datum.city + datum.rest) / 2)",
+          "as": "mid"
+        },
+        {
+          "calculate": "(datum.gap > 0 ? '+' : '') + format(datum.gap, '.1f') + ' pp'",
+          "as": "gapLabel"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dy": -10,
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "#172026"
+      },
       "encoding": {
-        "y": { "field": "state", "type": "nominal", "sort": { "field": "gap", "order": "descending" } },
-        "x": { "field": "mid", "type": "quantitative" },
-        "text": { "field": "gapLabel" }
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": {
+            "field": "gap",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "mid",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "gapLabel"
+        }
       }
     },
     {
-      "data": { "values": [{ "state": "NT", "label": "NT inverts the pattern:\nDarwin drives more than the rest of NT" }] },
-      "mark": { "type": "text", "align": "left", "dx": 8, "fontSize": 11, "fontStyle": "italic", "color": "#5e6a71", "lineBreak": "\n" },
+      "data": {
+        "values": [
+          {
+            "state": "NT",
+            "label": "NT inverts the pattern:\nDarwin drives more than the rest of NT"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#5e6a71",
+        "lineBreak": "\n"
+      },
       "encoding": {
-        "y": { "field": "state", "type": "nominal", "sort": { "field": "gap", "order": "descending" } },
-        "x": { "value": 200 },
-        "text": { "field": "label" }
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": {
+            "field": "gap",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "value": 200
+        },
+        "text": {
+          "field": "label"
+        }
       }
     }
   ]

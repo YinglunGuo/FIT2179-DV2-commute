@@ -4,156 +4,494 @@
   "config": {
     "background": null,
     "font": "Inter",
-    "axis": { "gridColor": "#e7e2d8", "domainColor": "#bdb6a9", "tickColor": "#bdb6a9", "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12, "titleFontWeight": 600 },
-    "legend": { "labelColor": "#344047", "titleColor": "#172026", "titleFontSize": 12 },
-    "view": { "stroke": null }
+    "axis": {
+      "gridColor": "#e7e2d8",
+      "domainColor": "#bdb6a9",
+      "tickColor": "#bdb6a9",
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12,
+      "titleFontWeight": 600
+    },
+    "legend": {
+      "labelColor": "#344047",
+      "titleColor": "#172026",
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
   },
   "spacing": 28,
   "vconcat": [
     {
-      "title": { "text": "Victoria — 19 selected LGAs · choropleth by PT use", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
+      "title": {
+        "text": "Victoria — 19 selected LGAs · choropleth by PT use",
+        "anchor": "start",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "color": "#172026"
+      },
       "width": 980,
       "height": 460,
-      "projection": { "type": "mercator", "center": [140.19, -33.56], "scale": 3800 },
+      "projection": {
+        "type": "mercator",
+        "center": [
+          140.19,
+          -33.56
+        ],
+        "scale": 3800
+      },
       "layer": [
         {
-          "data": { "url": "data/victoria_outline.geojson", "format": { "type": "json", "property": "features" } },
-          "mark": { "type": "geoshape", "fill": "#f3ece0", "stroke": "#7d7164", "strokeWidth": 1.2 }
+          "data": {
+            "url": "data/victoria_outline.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "mark": {
+            "type": "geoshape",
+            "fill": "#f3ece0",
+            "stroke": "#7d7164",
+            "strokeWidth": 1.2
+          }
         },
         {
-          "data": { "url": "data/lga_voronoi.geojson", "format": { "type": "json", "property": "features" } },
-          "mark": { "type": "geoshape", "stroke": "#fbfaf6", "strokeWidth": 1.1, "tooltip": true },
+          "data": {
+            "url": "data/lga_voronoi.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#fbfaf6",
+            "strokeWidth": 1.1,
+            "tooltip": true
+          },
           "encoding": {
             "color": {
               "field": "ptPct",
               "type": "quantitative",
-              "scale": { "scheme": "blues", "domainMin": 0, "domainMax": 17 },
-              "legend": { "title": "PT use (%)", "orient": "bottom-left", "gradientLength": 180, "titleFontSize": 11, "labelFontSize": 10 }
+              "scale": {
+                "scheme": "blues",
+                "domainMin": 0,
+                "domainMax": 17
+              },
+              "legend": {
+                "title": "PT use (%)",
+                "orient": "bottom-left",
+                "gradientLength": 180,
+                "titleFontSize": 11,
+                "labelFontSize": 10
+              }
             },
             "tooltip": [
-              { "field": "name", "title": "Area" },
-              { "field": "zone", "title": "Zone" },
-              { "field": "ptPct", "title": "PT %", "format": ".1f" },
-              { "field": "carPct", "title": "Drove %", "format": ".1f" },
-              { "field": "wfhPct", "title": "WFH %", "format": ".1f" }
+              {
+                "field": "name",
+                "title": "Area"
+              },
+              {
+                "field": "zone",
+                "title": "Zone"
+              },
+              {
+                "field": "ptPct",
+                "title": "PT %",
+                "format": ".1f"
+              },
+              {
+                "field": "carPct",
+                "title": "Drove %",
+                "format": ".1f"
+              },
+              {
+                "field": "wfhPct",
+                "title": "WFH %",
+                "format": ".1f"
+              }
             ]
           }
         },
         {
-          "data": { "values": [
-            { "lon": 143.86, "lat": -37.56, "label": "Ballarat" },
-            { "lon": 144.28, "lat": -36.76, "label": "Bendigo" },
-            { "lon": 145.40, "lat": -36.38, "label": "Shepparton" },
-            { "lon": 144.35, "lat": -38.15, "label": "Geelong" }
-          ] },
-          "mark": { "type": "text", "fontSize": 13, "fontWeight": 700, "color": "#16324d" },
+          "data": {
+            "values": [
+              {
+                "lon": 143.86,
+                "lat": -37.56,
+                "label": "Ballarat"
+              },
+              {
+                "lon": 144.28,
+                "lat": -36.76,
+                "label": "Bendigo"
+              },
+              {
+                "lon": 145.40,
+                "lat": -36.38,
+                "label": "Shepparton"
+              },
+              {
+                "lon": 144.35,
+                "lat": -38.15,
+                "label": "Geelong"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "fontSize": 13,
+            "fontWeight": 700,
+            "color": "#16324d"
+          },
           "encoding": {
-            "longitude": { "field": "lon", "type": "quantitative" },
-            "latitude": { "field": "lat", "type": "quantitative" },
-            "text": { "field": "label" }
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "label"
+            }
           }
         }
       ]
     },
     {
-      "title": { "text": "Greater Melbourne — expanded inset", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
+      "title": {
+        "text": "Greater Melbourne — expanded inset",
+        "anchor": "start",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "color": "#172026"
+      },
       "width": 980,
       "height": 520,
-      "projection": { "type": "mercator", "center": [143.88, -37.18], "scale": 15000 },
+      "projection": {
+        "type": "mercator",
+        "center": [
+          143.88,
+          -37.18
+        ],
+        "scale": 15000
+      },
       "layer": [
         {
-          "data": { "url": "data/lga_voronoi.geojson", "format": { "type": "json", "property": "features" } },
-          "transform": [{ "filter": "datum.properties.zone !== 'Regional'" }],
-          "mark": { "type": "geoshape", "stroke": "#fbfaf6", "strokeWidth": 1.8, "tooltip": true },
+          "data": {
+            "url": "data/lga_voronoi.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.properties.zone !== 'Regional'"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#fbfaf6",
+            "strokeWidth": 1.8,
+            "tooltip": true
+          },
           "encoding": {
             "color": {
               "field": "ptPct",
               "type": "quantitative",
-              "scale": { "scheme": "blues", "domainMin": 0, "domainMax": 17 },
+              "scale": {
+                "scheme": "blues",
+                "domainMin": 0,
+                "domainMax": 17
+              },
               "legend": null
             },
             "tooltip": [
-              { "field": "name", "title": "Area" },
-              { "field": "zone", "title": "Zone" },
-              { "field": "ptPct", "title": "PT %", "format": ".1f" },
-              { "field": "carPct", "title": "Drove %", "format": ".1f" },
-              { "field": "wfhPct", "title": "WFH %", "format": ".1f" }
+              {
+                "field": "name",
+                "title": "Area"
+              },
+              {
+                "field": "zone",
+                "title": "Zone"
+              },
+              {
+                "field": "ptPct",
+                "title": "PT %",
+                "format": ".1f"
+              },
+              {
+                "field": "carPct",
+                "title": "Drove %",
+                "format": ".1f"
+              },
+              {
+                "field": "wfhPct",
+                "title": "WFH %",
+                "format": ".1f"
+              }
             ]
           }
         },
         {
-          "data": { "url": "data/lga_voronoi.geojson", "format": { "type": "json", "property": "features" } },
-          "transform": [{ "filter": "datum.properties.name === 'Monash' || datum.properties.name === 'Wyndham' || datum.properties.name === 'Frankston' || datum.properties.name === 'Mornington Peninsula' || datum.properties.name === 'Whittlesea' || datum.properties.name === 'Melton'" }],
-          "mark": { "type": "text", "fontSize": 13, "fontWeight": 700, "lineBreak": "\n", "align": "center", "baseline": "middle" },
+          "data": {
+            "url": "data/lga_voronoi.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.properties.name === 'Monash' || datum.properties.name === 'Wyndham' || datum.properties.name === 'Frankston' || datum.properties.name === 'Mornington Peninsula' || datum.properties.name === 'Whittlesea' || datum.properties.name === 'Melton'"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontSize": 13,
+            "fontWeight": 700,
+            "lineBreak": "\n",
+            "align": "center",
+            "baseline": "middle"
+          },
           "encoding": {
-            "longitude": { "field": "lon", "type": "quantitative" },
-            "latitude": { "field": "lat", "type": "quantitative" },
-            "text": { "field": "name" },
-            "color": { "value": "#172026" }
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "name"
+            },
+            "color": {
+              "value": "#172026"
+            }
           }
         }
       ]
     },
     {
-      "title": { "text": "Drove vs PT — 19 selected Victorian LGAs", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
+      "title": {
+        "text": "Drove vs PT — 19 selected Victorian LGAs",
+        "anchor": "start",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "color": "#172026"
+      },
       "width": 980,
       "height": 430,
-      "data": { "url": "data/victoria_areas.json" },
+      "data": {
+        "url": "data/victoria_areas.json"
+      },
       "layer": [
         {
-          "transform": [{ "regression": "ptPct", "on": "carPct" }],
-          "mark": { "type": "line", "color": "#94918a", "strokeDash": [5, 5] },
+          "transform": [
+            {
+              "regression": "ptPct",
+              "on": "carPct"
+            }
+          ],
+          "mark": {
+            "type": "line",
+            "color": "#94918a",
+            "strokeDash": [
+              5,
+              5
+            ]
+          },
           "encoding": {
-            "x": { "field": "carPct", "type": "quantitative", "scale": { "domain": [10, 75] } },
-            "y": { "field": "ptPct", "type": "quantitative", "scale": { "domain": [0, 20] } }
+            "x": {
+              "field": "carPct",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  10,
+                  75
+                ]
+              }
+            },
+            "y": {
+              "field": "ptPct",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  20
+                ]
+              }
+            }
           }
         },
         {
-          "mark": { "type": "point", "filled": true, "size": 140, "tooltip": true, "stroke": "#fbfaf6", "strokeWidth": 1.3 },
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 140,
+            "tooltip": true,
+            "stroke": "#fbfaf6",
+            "strokeWidth": 1.3
+          },
           "encoding": {
-            "x": { "field": "carPct", "type": "quantitative", "title": "Drove to work (%)", "scale": { "domain": [10, 75] } },
-            "y": { "field": "ptPct", "type": "quantitative", "title": "Used public transport (%)", "scale": { "domain": [0, 20] } },
-            "color": {
-              "field": "zone", "type": "nominal",
+            "x": {
+              "field": "carPct",
+              "type": "quantitative",
+              "title": "Drove to work (%)",
               "scale": {
-                "domain": ["Inner city", "Inner suburb", "Middle suburb", "Outer suburb", "Peri-urban", "Regional"],
-                "range": ["#063b63", "#1f6fb2", "#4a9ad4", "#80bfe6", "#f0aa4f", "#9e7c5a"]
-              },
-              "legend": { "title": "Area type (zone)", "orient": "bottom", "columns": 3 }
+                "domain": [
+                  10,
+                  75
+                ]
+              }
             },
-            "opacity": { "value": 0.92 },
+            "y": {
+              "field": "ptPct",
+              "type": "quantitative",
+              "title": "Used public transport (%)",
+              "scale": {
+                "domain": [
+                  0,
+                  20
+                ]
+              }
+            },
+            "color": {
+              "field": "zone",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "Inner city",
+                  "Inner suburb",
+                  "Middle suburb",
+                  "Outer suburb",
+                  "Peri-urban",
+                  "Regional"
+                ],
+                "range": [
+                  "#063b63",
+                  "#1f6fb2",
+                  "#4a9ad4",
+                  "#80bfe6",
+                  "#f0aa4f",
+                  "#9e7c5a"
+                ]
+              },
+              "legend": {
+                "title": "Area type (zone)",
+                "orient": "bottom",
+                "columns": 3
+              }
+            },
+            "opacity": {
+              "value": 0.92
+            },
             "tooltip": [
-              { "field": "name", "title": "Area" },
-              { "field": "zone", "title": "Zone" },
-              { "field": "carPct", "title": "Drove %", "format": ".1f" },
-              { "field": "ptPct", "title": "PT %", "format": ".1f" },
-              { "field": "wfhPct", "title": "WFH %", "format": ".1f" }
+              {
+                "field": "name",
+                "title": "Area"
+              },
+              {
+                "field": "zone",
+                "title": "Zone"
+              },
+              {
+                "field": "carPct",
+                "title": "Drove %",
+                "format": ".1f"
+              },
+              {
+                "field": "ptPct",
+                "title": "PT %",
+                "format": ".1f"
+              },
+              {
+                "field": "wfhPct",
+                "title": "WFH %",
+                "format": ".1f"
+              }
             ]
           }
         },
         {
-          "transform": [{ "filter": "datum.name === 'Melbourne City' || datum.name === 'Wyndham' || datum.name === 'Ballarat' || datum.name === 'Port Phillip' || datum.name === 'Greater Geelong' || datum.name === 'Yarra'" }],
-          "mark": { "type": "text", "dx": 10, "dy": -10, "fontSize": 11, "fontWeight": 700, "color": "#172026", "align": "left" },
+          "transform": [
+            {
+              "filter": "datum.name === 'Melbourne City' || datum.name === 'Wyndham' || datum.name === 'Ballarat' || datum.name === 'Port Phillip' || datum.name === 'Greater Geelong' || datum.name === 'Yarra'"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "dx": 10,
+            "dy": -10,
+            "fontSize": 11,
+            "fontWeight": 700,
+            "color": "#172026",
+            "align": "left"
+          },
           "encoding": {
-            "x": { "field": "carPct", "type": "quantitative" },
-            "y": { "field": "ptPct", "type": "quantitative" },
-            "text": { "field": "name" }
+            "x": {
+              "field": "carPct",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "ptPct",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "name"
+            }
           }
         },
         {
-          "data": { "values": [
-            { "x": 20, "y": 18.6, "label": "Inverse relationship:" },
-            { "x": 20, "y": 17.2, "label": "more driving = less PT" }
-          ] },
-          "mark": { "type": "text", "fontSize": 11, "fontStyle": "italic", "color": "#5e6a71", "align": "left" },
+          "data": {
+            "values": [
+              {
+                "x": 20,
+                "y": 18.6,
+                "label": "Inverse relationship:"
+              },
+              {
+                "x": 20,
+                "y": 17.2,
+                "label": "more driving = less PT"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "fontSize": 11,
+            "fontStyle": "italic",
+            "color": "#5e6a71",
+            "align": "left"
+          },
           "encoding": {
-            "x": { "field": "x", "type": "quantitative" },
-            "y": { "field": "y", "type": "quantitative" },
-            "text": { "field": "label" }
+            "x": {
+              "field": "x",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "label"
+            }
           }
         }
       ]
     }
   ],
-  "resolve": { "scale": { "color": "independent", "size": "independent" } }
+  "resolve": {
+    "scale": {
+      "color": "independent",
+      "size": "independent"
+    }
+  }
 }
