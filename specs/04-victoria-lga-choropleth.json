@@ -46,7 +46,7 @@
             { "lon": 145.40, "lat": -36.38, "label": "Shepparton" },
             { "lon": 144.35, "lat": -38.15, "label": "Geelong" }
           ] },
-          "mark": { "type": "text", "fontSize": 12, "fontWeight": 700, "color": "#fbfaf6" },
+          "mark": { "type": "text", "fontSize": 13, "fontWeight": 700, "color": "#16324d" },
           "encoding": {
             "longitude": { "field": "lon", "type": "quantitative" },
             "latitude": { "field": "lat", "type": "quantitative" },
@@ -84,15 +84,12 @@
         {
           "data": { "url": "data/lga_voronoi.geojson", "format": { "type": "json", "property": "features" } },
           "transform": [{ "filter": "datum.properties.name === 'Monash' || datum.properties.name === 'Wyndham' || datum.properties.name === 'Frankston' || datum.properties.name === 'Mornington Peninsula' || datum.properties.name === 'Whittlesea' || datum.properties.name === 'Melton'" }],
-          "mark": { "type": "text", "fontSize": 12, "fontWeight": 700, "lineBreak": "\n", "align": "center", "baseline": "middle" },
+          "mark": { "type": "text", "fontSize": 13, "fontWeight": 700, "lineBreak": "\n", "align": "center", "baseline": "middle" },
           "encoding": {
             "longitude": { "field": "lon", "type": "quantitative" },
             "latitude": { "field": "lat", "type": "quantitative" },
             "text": { "field": "name" },
-            "color": {
-              "condition": { "test": "datum.properties.ptPct > 9", "value": "#fbfaf6" },
-              "value": "#172026"
-            }
+            "color": { "value": "#172026" }
           }
         }
       ]
