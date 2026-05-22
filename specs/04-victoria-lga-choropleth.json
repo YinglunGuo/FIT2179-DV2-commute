@@ -59,8 +59,8 @@
         {
           "title": { "text": "Greater Melbourne — inner-suburb detail", "anchor": "start", "fontSize": 13, "fontWeight": 700, "color": "#172026" },
           "width": 440,
-          "height": 360,
-          "projection": { "type": "mercator", "center": [145.10, -37.86], "scale": 22000 },
+          "height": 400,
+          "projection": { "type": "mercator", "center": [144.92, -37.78], "scale": 16500 },
           "layer": [
             {
               "data": { "url": "data/lga_voronoi.geojson", "format": { "type": "json", "property": "features" } },

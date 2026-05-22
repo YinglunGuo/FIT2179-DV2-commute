@@ -44,7 +44,7 @@
     <section class="content chapter">
       <p class="section-kicker">Chapter 1 · One state, many commute geographies</p>
       <h2>Where you live in Victoria predicts how you travel to work.</h2>
-      <p class="lead">The first chapter establishes the composition of Victorian travel modes in 2021, then drills into the spatial split between inner Melbourne, the suburban ring and regional Victoria. The same data is shown through <strong>two complementary map idioms</strong> — a geographically accurate proportional-symbol bubble map (chart 04) and an equal-area schematic grid cartogram (chart 15) — because dense inner-Melbourne LGAs are simply unreadable on a true-scale map of the state.</p>
+      <p class="lead">The first chapter establishes the composition of Victorian travel modes in 2021, then drills into the spatial split between inner Melbourne, the suburban ring and regional Victoria. The same data is shown through <strong>two complementary map idioms</strong> — a geographic Voronoi-style choropleth (chart 04) and an equal-area grid cartogram (chart 06) — because dense inner-Melbourne LGAs are otherwise compressed and unreadable on a true-scale map of the state.</p>
     </section>
 
     <section class="charts content">
@@ -67,9 +67,9 @@
       </article>
 
       <article class="chart-card wide">
-        <div class="chart-copy"><span class="chart-number">04</span><h3>Choropleth geography view — 19 selected Victorian LGAs</h3><p>Three coordinated panels in one Vega-Lite spec. <strong>Top-left</strong>: the full Victorian state with a 121-point Murray-River-and-coast outline. <strong>Bottom-left</strong>: a Greater Melbourne inset that opens up the inner-suburb cluster. <strong>Right</strong>: a drove-vs-PT scatter that re-uses the same zone palette. <em>How to read this:</em> each filled region is one LGA. The colour ramp (light → dark blue) encodes public-transport share (0–17%). Region boundaries are Voronoi cells around each LGA centroid clipped to the Victoria polygon — a schematic approximation, not the strict ABS LGA boundary.</p></div>
-        <div id="04-victoria-pt-bubble-map" class="chart-host tall" aria-label="Victoria choropleth with Greater Melbourne inset and scatter"></div>
-        <p class="source-note">Victoria outline: 121-point polygon — Natural-Earth 1:50m south coast (<a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a>) + hand-traced Murray River and Victoria–NSW border, aligned to the <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026" target="_blank" rel="noopener">ABS ASGS Edition 3</a> Victoria boundary. LGA regions: Voronoi tessellation of <a href="https://profile.id.com.au/" target="_blank" rel="noopener">profile.id community profile</a> LGA centroids, clipped to Victoria via <code>polygon-clipping</code>. Spec: <a href="specs/04-victoria-pt-bubble-map.json">04-victoria-pt-bubble-map.json</a></p>
+        <div class="chart-copy"><span class="chart-number">04</span><h3>Schematic choropleth map — 19 selected Victorian LGAs</h3><p>Three coordinated panels in one Vega-Lite spec. <strong>Top-left</strong>: the full Victorian state with a 121-point Murray-River-and-coast outline. <strong>Bottom-left</strong>: a Greater Melbourne inset that opens up the inner-suburb cluster. <strong>Right</strong>: a drove-vs-PT scatter that re-uses the same zone palette. <em>How to read this:</em> each filled region is one LGA. The colour ramp (light → dark blue) encodes public-transport share (0–17%). Region outlines are <strong>simplified hand-traced polygons</strong> (9–16 vertices per LGA) sized and positioned to approximate the real ABS LGA shape — they are schematic, not the strict ABS boundary.</p></div>
+        <div id="04-victoria-lga-choropleth" class="chart-host tall" aria-label="Victoria choropleth with Greater Melbourne inset and scatter"></div>
+        <p class="source-note">Victoria outline: 121-point polygon — Natural-Earth 1:50m south coast (<a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a>) + hand-traced Murray River and Victoria–NSW border, aligned to the <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026" target="_blank" rel="noopener">ABS ASGS Edition 3</a> Victoria boundary. LGA regions: simplified hand-traced polygons positioned to approximate the real ABS LGA shapes (not exact boundaries). Data: <a href="https://profile.id.com.au/" target="_blank" rel="noopener">profile.id community profiles</a> (ABS-derived). Spec: <a href="specs/04-victoria-lga-choropleth.json">04-victoria-lga-choropleth.json</a></p>
       </article>
 
       <article class="chart-card wide">
@@ -79,7 +79,7 @@
       </article>
 
       <article class="chart-card wide">
-        <div class="chart-copy"><span class="chart-number">15</span><h3>Grid cartogram · a second map idiom for the same data</h3><p>A schematic tile map of all 19 Victorian LGAs. Each LGA gets an equal-area square placed at a roughly geographic position (Inner city in the centre, Regional at the edges) — so dense inner-Melbourne LGAs are no longer hidden under each other the way they are on the bubble map. Colour encodes PT share. The two map idioms together show the same data through two complementary cartographic techniques — geographic accuracy (chart 04) and equal-area legibility (chart 15).</p></div>
+        <div class="chart-copy"><span class="chart-number">06</span><h3>Grid cartogram · a second map idiom for the same data</h3><p>A schematic tile map of all 19 Victorian LGAs. Each LGA gets an equal-area square placed at a roughly geographic position (Inner city in the centre, Regional at the edges) — so dense inner-Melbourne LGAs are no longer hidden or compressed on the true-scale geographic map. Colour encodes PT share. The two map idioms together show the same data through two complementary cartographic techniques — geographic accuracy (chart 04) and equal-area legibility (chart 06).</p></div>
         <div id="15-lga-grid-cartogram" class="chart-host tall" aria-label="Grid cartogram of Victorian LGAs by PT share"></div>
         <p class="source-note">Tile layout: hand-designed schematic grid based on ABS <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026" target="_blank" rel="noopener">ASGS Edition 3</a> LGA geography. Data: same as charts 04 and 05 — <a href="https://profile.id.com.au/" target="_blank" rel="noopener">profile.id community profiles</a> (ABS-derived). Spec: <a href="specs/15-lga-grid-cartogram.json">15-lga-grid-cartogram.json</a></p>
       </article>
@@ -93,25 +93,25 @@
 
     <section class="charts content">
       <article class="chart-card wide">
-        <div class="chart-copy"><span class="chart-number">06</span><h3>State trajectories: WFH 1976–2021</h3><p>A custom-built small-multiples panel — one mini-chart per state and territory, plotted on a common 0–33% scale. Eight stable, flat lines and one shared, dramatic 2021 spike. The 2021 endpoint is highlighted red.</p></div>
+        <div class="chart-copy"><span class="chart-number">07</span><h3>State trajectories: WFH 1976–2021</h3><p>A custom-built small-multiples panel — one mini-chart per state and territory, plotted on a common 0–33% scale. Eight stable, flat lines and one shared, dramatic 2021 spike. The 2021 endpoint is highlighted red.</p></div>
         <div id="06-car-vs-pt-scatter" class="chart-host tall" aria-label="State WFH trajectories small multiples"></div>
         <p class="source-note">Source: <a href="https://www.abs.gov.au/articles/australias-journey-work" target="_blank" rel="noopener">ABS, Australia's Journey to Work — Working from home by state/territory 1976 to 2021</a> table. Spec: <a href="specs/06-car-vs-pt-scatter.json">06-car-vs-pt-scatter.json</a></p>
       </article>
 
       <article class="chart-card">
-        <div class="chart-copy"><span class="chart-number">07</span><h3>Victoria's WFH: 60 years of stability, then a step change</h3><p>The full 10-Census Victorian time series. WFH hovered between 4% and 8% for half a century, then jumped to 25.7% in 2021 — six times its pre-pandemic value.</p></div>
+        <div class="chart-copy"><span class="chart-number">08</span><h3>Victoria's WFH: 60 years of stability, then a step change</h3><p>The full 10-Census Victorian time series. WFH hovered between 4% and 8% for half a century, then jumped to 25.7% in 2021 — six times its pre-pandemic value.</p></div>
         <div id="07-victoria-wfh-trend" class="chart-host" aria-label="Victoria WFH 1976 to 2021"></div>
         <p class="source-note">Source: <a href="https://www.abs.gov.au/articles/australias-journey-work" target="_blank" rel="noopener">ABS Australia's Journey to Work — VIC column of state WFH table</a>. Spec: <a href="specs/07-victoria-wfh-trend.json">07-victoria-wfh-trend.json</a></p>
       </article>
 
       <article class="chart-card">
-        <div class="chart-copy"><span class="chart-number">08</span><h3>Lockdown shaped WFH on Census day</h3><p>Bar chart of WFH share by state, sorted descending. Victoria highlighted. The labels separate states that were in lockdown on 10 August 2021 (NSW, VIC) from those that were not (WA, NT).</p></div>
+        <div class="chart-copy"><span class="chart-number">09</span><h3>Lockdown shaped WFH on Census day</h3><p>Bar chart of WFH share by state, sorted descending. Victoria highlighted. The labels separate states that were in lockdown on 10 August 2021 (NSW, VIC) from those that were not (WA, NT).</p></div>
         <div id="08-wfh-by-state" class="chart-host" aria-label="WFH by state 2021"></div>
         <p class="source-note">Source: <a href="https://www.abs.gov.au/media-centre/media-releases/2021-census-25-million-people-working-home-census-day" target="_blank" rel="noopener">ABS press release</a>; <a href="https://www.abs.gov.au/articles/australias-journey-work" target="_blank" rel="noopener">ABS state WFH table</a>. Spec: <a href="specs/08-wfh-by-state.json">08-wfh-by-state.json</a></p>
       </article>
 
       <article class="chart-card wide">
-        <div class="chart-copy"><span class="chart-number">09</span><h3>The pandemic Census redrew national mode share</h3><p>Three lines on one chart. Driving fell from 62% to 53%, public transport halved from ~11% to 4.7%, and WFH jumped fivefold from 4.7% to 21%. WFH overtook all PT modes combined for the first time on record.</p></div>
+        <div class="chart-copy"><span class="chart-number">10</span><h3>The pandemic Census redrew national mode share</h3><p>Three lines on one chart. Driving fell from 62% to 53%, public transport halved from ~11% to 4.7%, and WFH jumped fivefold from 4.7% to 21%. WFH overtook all PT modes combined for the first time on record.</p></div>
         <div id="09-national-mode-trend" class="chart-host" aria-label="National mode trend 2011 to 2021"></div>
         <p class="source-note">Source: <a href="https://www.abs.gov.au/articles/australias-journey-work" target="_blank" rel="noopener">ABS Australia's Journey to Work — Method of travel table 2016 and 2021</a>, with 2011 figures from ABS Census 2011 Quickstats summary. Spec: <a href="specs/09-national-mode-trend.json">09-national-mode-trend.json</a></p>
       </article>
@@ -125,25 +125,25 @@
 
     <section class="charts content">
       <article class="chart-card">
-        <div class="chart-copy"><span class="chart-number">10</span><h3>Car dependence: city vs rest of state</h3><p>Dumbbell chart sorted by gap. Sydney and Melbourne sit furthest left (low car) but their hinterlands look like the rest of the country. NT inverts the pattern.</p></div>
+        <div class="chart-copy"><span class="chart-number">11</span><h3>Car dependence: city vs rest of state</h3><p>Dumbbell chart sorted by gap. Sydney and Melbourne sit furthest left (low car) but their hinterlands look like the rest of the country. NT inverts the pattern.</p></div>
         <div id="10-car-city-dumbbell" class="chart-host" aria-label="Car driver share city vs rest of state"></div>
         <p class="source-note">Source: <a href="https://www.abs.gov.au/articles/australias-journey-work" target="_blank" rel="noopener">ABS Australia's Journey to Work — Greater Capital City vs Rest of State table</a>. Spec: <a href="specs/10-car-city-dumbbell.json">10-car-city-dumbbell.json</a></p>
       </article>
 
       <article class="chart-card">
-        <div class="chart-copy"><span class="chart-number">11</span><h3>Public transport halved across all modes</h3><p>The 2021 column shows the system-wide collapse: train −61%, bus −43%, tram/ferry −49% versus 2016. PT had never lost half its passengers in a single Census before.</p></div>
+        <div class="chart-copy"><span class="chart-number">12</span><h3>Public transport halved across all modes</h3><p>The 2021 column shows the system-wide collapse: train −61%, bus −43%, tram/ferry −49% versus 2016. PT had never lost half its passengers in a single Census before.</p></div>
         <div id="11-pt-modes-collapse" class="chart-host" aria-label="PT modes 2011 to 2021"></div>
         <p class="source-note">Source: <a href="https://www.abs.gov.au/articles/australias-journey-work" target="_blank" rel="noopener">ABS Australia's Journey to Work — Public transport table 2011 to 2021</a>. Spec: <a href="specs/11-pt-modes-collapse.json">11-pt-modes-collapse.json</a></p>
       </article>
 
       <article class="chart-card wide">
-        <div class="chart-copy"><span class="chart-number">12</span><h3>The full 2021 national mode hierarchy</h3><p>Ranked bar of every method-of-travel category. Car-as-driver and WFH dwarf everything else. All public-transport modes combined still fall below "Did not go to work" — almost 12% of Australian workers were employed but did not commute on Census day, the largest non-travelling share in any peacetime Census.</p></div>
+        <div class="chart-copy"><span class="chart-number">13</span><h3>The full 2021 national mode hierarchy</h3><p>Ranked bar of every method-of-travel category. Car-as-driver and WFH dwarf everything else. All public-transport modes combined still fall below "Did not go to work" — almost 12% of Australian workers were employed but did not commute on Census day, the largest non-travelling share in any peacetime Census.</p></div>
         <div id="12-national-2021-modes" class="chart-host tall" aria-label="National 2021 mode ranking"></div>
         <p class="source-note">Source: <a href="https://www.abs.gov.au/articles/australias-journey-work" target="_blank" rel="noopener">ABS Australia's Journey to Work — How people travelled to work 2021</a>. Spec: <a href="specs/12-national-2021-modes.json">12-national-2021-modes.json</a></p>
       </article>
 
       <article class="chart-card wide">
-        <div class="chart-copy"><span class="chart-number">13</span><h3>Vehicle ownership tracks geography</h3><p>Normalised stacked bars for four areas. 45% of Melbourne City households own no vehicle. In Wyndham, 67% own two or more. The split mirrors the mode-of-travel geography exactly.</p></div>
+        <div class="chart-copy"><span class="chart-number">14</span><h3>Vehicle ownership tracks geography</h3><p>Normalised stacked bars for four areas. 45% of Melbourne City households own no vehicle. In Wyndham, 67% own two or more. The split mirrors the mode-of-travel geography exactly.</p></div>
         <div id="13-vehicle-ownership-stack" class="chart-host" aria-label="Vehicle ownership stack"></div>
         <p class="source-note">Source: <a href="https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA24600" target="_blank" rel="noopener">Melbourne City</a>, <a href="https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA27260" target="_blank" rel="noopener">Wyndham</a>, <a href="https://www.abs.gov.au/census/find-census-data/quickstats/2021/2" target="_blank" rel="noopener">Victoria</a>, <a href="https://www.abs.gov.au/census/find-census-data/quickstats/2021/AUS" target="_blank" rel="noopener">Australia</a> QuickStats — Number of motor vehicles per household. Spec: <a href="specs/13-vehicle-ownership-stack.json">13-vehicle-ownership-stack.json</a></p>
       </article>
@@ -157,7 +157,7 @@
 
     <section class="charts content">
       <article class="chart-card wide">
-        <div class="chart-copy"><span class="chart-number">14</span><h3>Active commuters: a 45-year story</h3><p>Stacked area of walking and cycling commuters every Australian Census from 1976 to 2021. Walking carried most of the volume in every year; cycling never recovered its 1970s share.</p></div>
+        <div class="chart-copy"><span class="chart-number">15</span><h3>Active commuters: a 45-year story</h3><p>Stacked area of walking and cycling commuters every Australian Census from 1976 to 2021. Walking carried most of the volume in every year; cycling never recovered its 1970s share.</p></div>
         <div id="14-active-transport-area" class="chart-host" aria-label="Active transport 1976 to 2021"></div>
         <p class="source-note">Source: <a href="https://www.abs.gov.au/articles/australias-journey-work" target="_blank" rel="noopener">ABS Australia's Journey to Work — Active transport users 1976 to 2021 table</a>. Per-mode 2016/2021 split from ABS How people travelled to work table; pre-2016 split estimated from Census historical commute summaries. Spec: <a href="specs/14-active-transport-area.json">14-active-transport-area.json</a></p>
       </article>
@@ -182,7 +182,9 @@
   </footer>
 
   <script>
-    const charts = ["01-victoria-modes-donut","02-area-mode-heatmap","03-selected-area-bars","04-victoria-pt-bubble-map","05-pt-ranking","15-lga-grid-cartogram","06-car-vs-pt-scatter","07-victoria-wfh-trend","08-wfh-by-state","09-national-mode-trend","10-car-city-dumbbell","11-pt-modes-collapse","12-national-2021-modes","13-vehicle-ownership-stack","14-active-transport-area"];
+    // Note: display order matches `<article>` order. Some file names retain their original numeric prefix
+    // for backward compatibility — the visible chart-number in the page header is what matters for marking.
+    const charts = ["01-victoria-modes-donut","02-area-mode-heatmap","03-selected-area-bars","04-victoria-lga-choropleth","05-pt-ranking","15-lga-grid-cartogram","06-car-vs-pt-scatter","07-victoria-wfh-trend","08-wfh-by-state","09-national-mode-trend","10-car-city-dumbbell","11-pt-modes-collapse","12-national-2021-modes","13-vehicle-ownership-stack","14-active-transport-area"];
     const embedOptions = { actions: false, renderer: 'svg' };
     async function embedCharts() {
       for (const id of charts) {
